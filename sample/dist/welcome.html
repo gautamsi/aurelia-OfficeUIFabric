@@ -1,0 +1,45 @@
+<template>
+    <section class="au-animate">
+        <h2>${heading}</h2>
+        <of-button ref="btn1" type.two-way="type" label.two-way="label" icon.two-way="icon" description.two-way="descriptions[0]"></of-button>
+        <br>
+        <of-button ref="btn2" type.two-way="types[1]" label.two-way="labels[1]" icon.two-way="icons[1]" description.two-way="descriptions[1]"></of-button>
+        <br>
+        <of-button ref="btn3" type.two-way="types[2]" label.two-way="labels[2]" icon.two-way="icons[2]" description.two-way="descriptions[2]"></of-button>
+        <br>
+        <of-button ref="btn4" type.two-way="types[3]" label.two-way="labels[3]" icon.two-way="icons[3]" description.two-way="descriptions[3]"
+        click.delegate="btn4.type='none'"></of-button>
+        <br>
+        <of-button ref="btn5" type.two-way="types[4]" label.two-way="labels[4]" icon.two-way="icons[4]" description.two-way="descriptions[4]"
+        click.delegate="changebtn()"></of-button>
+        <br>
+        <hr/>
+
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="false" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="true" presence="busy" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="false" presence="offline" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="true" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="false" presence="away" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="true" presence="busy" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-text.bind="false" presence="blocked" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="true" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="false" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+ 
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="true" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="true" presence="blocked" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="false" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="true" presence="away" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="true" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="true" presence="some" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+
+    </section>
+</template>
