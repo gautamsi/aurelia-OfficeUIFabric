@@ -1,0 +1,18 @@
+<template>
+    <div class="ms-ListItem ${hasImage ? 'ms-ListItem--image ' : (type=== 'document' ? 'ms-ListItem--document ' : ' ')} ${selectable ? 'is-selectable ' : ' '} ${isSelected ? 'is-selected ' : ' '} ${isUnseen ? 'is-unseen ' : ' '} ${isUnread ? 'is-unread ' : ' '}">
+        <div if.bind="hasImage" class="ms-ListItem-image" style="background-color: #767676;">
+            <img src="${image}" class="ms-ListItem-image" alt="${imagealt}">
+        </div>
+        <div if.bind="type==='document'" class="ms-ListItem-itemIcon ms-ListItem-itemIcon">
+            <i class="ms-Icon ms-Icon--${documentIcon}"></i>
+        </div>
+        <span class="ms-ListItem-primaryText ">${primaryText}</span>
+        <span class="ms-ListItem-secondaryText ">${secondaryText}</span>
+        <span if.bind="type!=='document'" class="ms-ListItem-tertiaryText ">${tertiaryText}</span>
+        <span if.bind="type!=='document'" class="ms-ListItem-metaText ">${metaText}</span>
+        <div class="ms-ListItem-selectionTarget js-toggleSelection " click.trigger="isSelected = !isSelected"></div>
+        <div class="ms-ListItem-actions ">
+            <content select="office-listitem-action"></content>
+        </div>
+    </div>
+</template>

@@ -1,45 +1,88 @@
 <template>
+    <style type="text/css">
+      .sample-wrapper  .ms-Overlay {
+      display: block;
+      position: relative;
+      height: 50px;
+      box-shadow: 0 0 8px 0 rgba(0,0,0,0.3); /** For visibility of lighter variant */
+    }
+    </style>
     <section class="au-animate">
         <h2>${heading}</h2>
-        <of-button ref="btn1" type.two-way="type" label.two-way="label" icon.two-way="icon" description.two-way="descriptions[0]"></of-button>
+        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
+            selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false" document-icon="" type="default">
+            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+        </office-listitem>
+        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
+            selectable.bind="true" is-selected.bind="true" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false" document-icon="" type="default">
+            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+        </office-listitem>
+        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
+            selectable.bind="false" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false" document-icon="" type="default">
+            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+        </office-listitem>
+        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
+            selectable.bind="true" is-selected.bind="false" has-image.bind="true" is-unseen.bind="true" is-unread.bind="true" document-icon="" 
+            image.bind="src" type="default">            
+            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+        </office-listitem>
+        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
+            selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="true" is-unread.bind="false" document-icon="documentPDF" type="document">
+            <office-listitem-action repeat.for="icon of listicons.slice(1,4)" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+        </office-listitem>
+
+        
+        <hr/>
+        <div class="sample-wrapper" style="width:200px;height:50px;">
+            <office-overlay type="default" ></office-overlay>
+        </div>
+        
+        <div class="sample-wrapper" style="width:200px;height:50px;">
+            <office-overlay type="dark" ></office-overlay>
+        </div>
+        <div class="sample-wrapper" style="width:200px;height:50px;border:red;">
+            <office-overlay type="none" ></office-overlay>
+        </div>
+        
+        <office-button ref="btn1" type.two-way="type" label.two-way="label" icon.two-way="icon" description.two-way="descriptions[0]"></office-button>
         <br>
-        <of-button ref="btn2" type.two-way="types[1]" label.two-way="labels[1]" icon.two-way="icons[1]" description.two-way="descriptions[1]"></of-button>
+        <office-button ref="btn2" type.two-way="types[1]" label.two-way="labels[1]" icon.two-way="icons[1]" description.two-way="descriptions[1]"></office-button>
         <br>
-        <of-button ref="btn3" type.two-way="types[2]" label.two-way="labels[2]" icon.two-way="icons[2]" description.two-way="descriptions[2]"></of-button>
+        <office-button ref="btn3" type.two-way="types[2]" label.two-way="labels[2]" icon.two-way="icons[2]" description.two-way="descriptions[2]"></office-button>
         <br>
-        <of-button ref="btn4" type.two-way="types[3]" label.two-way="labels[3]" icon.two-way="icons[3]" description.two-way="descriptions[3]"
-        click.delegate="btn4.type='none'"></of-button>
+        <office-button ref="btn4" type.two-way="types[3]" label.two-way="labels[3]" icon.two-way="icons[3]" description.two-way="descriptions[3]"
+        click.delegate="btn4.type='none'"></office-button>
         <br>
-        <of-button ref="btn5" type.two-way="types[4]" label.two-way="labels[4]" icon.two-way="icons[4]" description.two-way="descriptions[4]"
-        click.delegate="changebtn()"></of-button>
+        <office-button ref="btn5" type.two-way="types[4]" label.two-way="labels[4]" icon.two-way="icons[4]" description.two-way="descriptions[4]"
+        click.delegate="changebtn()"></office-button>
         <br>
         <hr/>
 
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="false" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="true" presence="busy" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="false" presence="offline" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="true" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="false" presence="away" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="true" presence="busy" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-text.bind="false" presence="blocked" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="true" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="false" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="false" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="true" presence="busy" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="false" presence="offline" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="true" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="false" presence="away" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="true" presence="busy" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-text.bind="false" presence="blocked" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="true" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="false" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
  
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="true" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="true" presence="blocked" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="false" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="true" presence="away" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="true" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="true" presence="some" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
-        <div><of-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </of-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="true" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="tiny" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="true" presence="blocked" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xs" dark-Text.bind="false" presence="dnd" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="true" presence="away" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="sm" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="true" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="reg" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="true" presence="none" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="lg" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="true" presence="some" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round" selectable.bind="selectable" image.bind="src" bg-icon.bind="icon" size="xl" dark-Text.bind="false" presence="available" name.bind="name" title.bind="title" status.bind = "status" detail.bind="detail" > </office-persona></div>
 
     </section>
 </template>

@@ -19,7 +19,7 @@
     "./src/**/*.ts",
     "./test/**/*.ts",
     "./typings/**/*.d.ts",
-    "./jspm_packages/**/*.d.ts"
+    "!./jspm_packages/**/*.d.ts"
   ],
   "exclude": [
     "node_modules"
