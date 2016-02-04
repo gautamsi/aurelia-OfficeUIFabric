@@ -20,7 +20,7 @@ var cjsDir= paths.output + 'commonjs';
 var sysDir= paths.output + 'system';
 
 gulp.task('build-html-es6', function () {
-    return gulp.src([paths.html, paths.css])
+    return gulp.src([paths.html, paths.css, paths.js])
         .pipe(changed(es6Dir))
         .pipe(gulp.dest(es6Dir));
 });
@@ -40,7 +40,7 @@ gulp.task('build-es6', ['build-html-es6'], function () {
 });
 
 gulp.task('build-html-commonjs', function () {
-    return gulp.src([paths.html, paths.css])
+    return gulp.src([paths.html, paths.css, paths.js])
         .pipe(changed(cjsDir))
         .pipe(gulp.dest(cjsDir));
 });
@@ -61,7 +61,7 @@ gulp.task('build-commonjs', ['build-html-commonjs'], function () {
 });
 
 gulp.task('build-html-amd', function () {
-    return gulp.src([paths.html, paths.css])
+    return gulp.src([paths.html, paths.css, paths.js])
         .pipe(changed(amdDir))
         .pipe(gulp.dest(amdDir));
 });
@@ -82,7 +82,7 @@ gulp.task('build-amd', ['build-html-amd'], function () {
 });
 
 gulp.task('build-html-system', function () {
-    return gulp.src([paths.html, paths.css])
+    return gulp.src([paths.html, paths.css, paths.js])
         .pipe(changed(sysDir))
         .pipe(gulp.dest(sysDir));
 });

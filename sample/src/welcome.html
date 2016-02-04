@@ -6,33 +6,87 @@
       height: 50px;
       box-shadow: 0 0 8px 0 rgba(0,0,0,0.3); /** For visibility of lighter variant */
     }
+    .ms-Spinner.ms-Spinner--large {
+    width: 48px;
+    height: 48px;
+    }
     </style>
     <section class="au-animate">
         <h2>${heading}</h2>
-        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
-            selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false" document-icon="" type="default">
-            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
-        </office-listitem>
-        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
-            selectable.bind="true" is-selected.bind="true" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false" document-icon="" type="default">
-            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
-        </office-listitem>
-        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
-            selectable.bind="false" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false" document-icon="" type="default">
-            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
-        </office-listitem>
-        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
-            selectable.bind="true" is-selected.bind="false" has-image.bind="true" is-unseen.bind="true" is-unread.bind="true" document-icon="" 
-            image.bind="src" type="default">            
-            <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
-        </office-listitem>
-        <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d." meta-text="2:42p" 
-            selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="true" is-unread.bind="false" document-icon="documentPDF" type="document">
-            <office-listitem-action repeat.for="icon of listicons.slice(1,4)" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
-        </office-listitem>
-
         
-        <hr/>
+        <office-searchbox></office-searchbox>
+        <office-searchbox repeat.for="icon of listicons""  search-button.bind="true" search.delegate="listiconclick(icon, $event)"></office-searchbox>
+        
+        <office-spinner></office-spinner>
+        <office-spinner large="true"></office-spinner>
+        <office-spinner has-text="true"></office-spinner>
+        <office-spinner large="true" text="Spinning..."></office-spinner>
+        
+        <office-list type="grid">
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false"
+            document-icon="" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="true" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false"
+            document-icon="" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="false" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false"
+            document-icon="" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" has-image.bind="true" is-unseen.bind="true" is-unread.bind="true"
+            document-icon="" image.bind="src" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="true" is-unread.bind="false"
+            document-icon="documentPDF" type="document">
+                <office-listitem-action repeat.for="icon of listicons.slice(1,4)" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+        </office-list>
+        
+        <!--<office-list type="grid">
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false"
+            document-icon="" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="true" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false"
+            document-icon="" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="false" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="false" is-unread.bind="false"
+            document-icon="" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" has-image.bind="true" is-unseen.bind="true" is-unread.bind="true"
+            document-icon="" image.bind="src" type="default">
+                <office-listitem-action repeat.for="icon of listicons" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" hasImage.bind="false" is-unseen.bind="true" is-unread.bind="false"
+            document-icon="documentPDF" type="document">
+                <office-listitem-action repeat.for="icon of listicons.slice(1,4)" icon.bind="icon" click.delegate="listiconclick()"></office-listitem-action>
+            </office-listitem>
+        </office-list>-->
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <!--<hr/>
         <div class="sample-wrapper" style="width:200px;height:50px;">
             <office-overlay type="default" ></office-overlay>
         </div>
@@ -42,7 +96,7 @@
         </div>
         <div class="sample-wrapper" style="width:200px;height:50px;border:red;">
             <office-overlay type="none" ></office-overlay>
-        </div>
+        </div>-->
         
         <office-button ref="btn1" type.two-way="type" label.two-way="label" icon.two-way="icon" description.two-way="descriptions[0]"></office-button>
         <br>

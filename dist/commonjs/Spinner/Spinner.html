@@ -1,0 +1,5 @@
+<template>
+    <div ref="element" class="ms-Spinner ${large === 'true' || large === true ? 'ms-Spinner--large' : '' }">
+        <div if.bind="hasText === 'true' || hasText === true || text !== 'Loading...'" class="ms-Spinner-label">${text}</div>
+    </div>    
+</template>

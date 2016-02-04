@@ -10,6 +10,7 @@ module.exports = {
   source: appRoot + '**/*.ts',
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
+  js: appRoot + '**/*.js',
   less: appRoot + '**/*.less',
   output: outputRoot,
   sample: 'sample',

@@ -9,7 +9,7 @@ export class Welcome {
     types: string[] = ["basic", "primary", "command", "hero", "compound"];
     type: string = "basic";
     icons: string[] = ["none", "minus", "home", "minus", "none"];
-    listicons:string[] = ["mail","trash","flag","pinLeft", "mail"];
+    listicons:string[] = ["mail","trash","flag","pinLeft"];//, "mail"];
     labels: string[] = ["basic", "primary", "command", "hero", "compound"];
     label: string = "basic btn";
     descriptions: string[] = ["basic button", "primary button ", "command button ", "hero button ", "compound button"];
@@ -63,8 +63,8 @@ export class Welcome {
         }
     }
     
-    listiconclick(){
-        this.listicons.pop();
+    listiconclick( data:any, $event:any){
+        //this.listicons.pop();
     }
 
 }
