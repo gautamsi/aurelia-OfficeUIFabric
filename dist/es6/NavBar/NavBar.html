@@ -1,0 +1,16 @@
+<template>
+<div ref="navBarRoot" class="ms-NavBar">
+  <div class="ms-NavBar-openMenu js-openMenu">
+    <i class="ms-Icon ms-Icon--menu"></i>
+  </div>
+  <div class="ms-Overlay"></div>
+  <ul class="ms-NavBar-items">
+    <li class="ms-NavBar-item ms-NavBar-item--search ms-u-hiddenSm ${searchTextRight ? 'ms-NavBar-item--right' : ''}">
+      <div class="ms-TextField">
+        <input class="ms-TextField-field" value.bind="searchText" keyup.delegate="searchButtonClick($event)">
+      </div>
+    </li>
+    <content select="office-navbar-item"></content>
+  </ul>
+</div>
+</template>
