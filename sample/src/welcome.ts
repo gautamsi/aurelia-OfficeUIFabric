@@ -4,6 +4,7 @@ export class Welcome {
     heading = 'Welcome to the Aurelia Navigation App!';
     firstName = 'John';
     lastName = 'Doe';
+    searchText:string='';
     previousValue = this.fullName;
 
     types: string[] = ["basic", "primary", "command", "hero", "compound"];

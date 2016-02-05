@@ -1,5 +1,5 @@
 import {customElement, bindable, inject} from 'aurelia-framework';
-import * as Fabric from './SpinnerComponent.js';
+import * as Fabric from './SpinnerComponent';
 
 //@inject(Element)
 @customElement('office-spinner')

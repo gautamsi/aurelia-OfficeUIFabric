@@ -1,0 +1,11 @@
+<template>
+    <li class="ms-ContextualMenu-item ${header ? 'ms-ContextualMenu-item--header' : ''} ${divider ? 'ms-ContextualMenu-item--divider' : ''}">
+        <template if.bind="header">${headerText}</template>
+        <template if.bind="!header">
+            <a class="ms-ContextualMenu-link ${hasMenu ? 'ms-ContextualMenu-link--hasMenu' : ''} ${disabled ? 'is-disabled' : ''} ${selected ? 'is-selected' : ''}"
+            href.bind="href">${linkText}</a>
+            <i if.bind="icon !== ''" class="ms-ContextualMenu-subMenuIcon ms-Icon ms-Icon--${icon}"></i>
+        </template>
+        <content select="office-contextualmenu"></content>
+    </li>
+</template>
