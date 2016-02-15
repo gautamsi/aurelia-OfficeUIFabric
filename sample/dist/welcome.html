@@ -30,7 +30,19 @@
     </style>
     <section class="au-animate">
         <h2>${heading}</h2>
-
+        <office-button ref="btn5" type="command" label="Open Panel" icon = "home"
+                        click.delegate="toggle=!toggle"></office-button>
+        <office-panel ref="panel" header-text="Panel Header here" toggle.bind="toggle" >
+            <office-panel-content>
+                <office-searchbox></office-searchbox>
+                <!--<office-searchbox repeat.for="icon of listicons" " search-button.bind="true " search.delegate="listiconclick(icon, $event) "></office-searchbox>-->
+            
+                <office-spinner></office-spinner>
+                <office-spinner large="true "></office-spinner>
+                <office-spinner has-text="true "></office-spinner>
+                <office-spinner large="true " text="Spinning... "></office-spinner>
+            </office-panel-content>
+        </office-panel>
         <office-navbar search.delegate="listiconclick($event)" search-text.bind="searchText" search-text-right="true">
             <office-navbar-item link-text="Home"></office-navbar-item>
             <office-navbar-item link-text="Channels" has-menu.bind="true" icon="chevronDown">

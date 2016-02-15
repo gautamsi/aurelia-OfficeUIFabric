@@ -12,6 +12,8 @@ Following is working - look at  [sample/dist/welcome.html](https://github.com/ga
 - Overlay (needs improvement)
 - NavBar
 - ContextualMenu
+- Label
+- Panel
 
 How to run sample
 ````cmd

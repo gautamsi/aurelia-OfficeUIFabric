@@ -6,7 +6,7 @@ export class Welcome {
     lastName = 'Doe';
     searchText:string='';
     previousValue = this.fullName;
-
+    toggle:boolean = false;
     types: string[] = ["basic", "primary", "command", "hero", "compound"];
     type: string = "basic";
     icons: string[] = ["none", "minus", "home", "minus", "none"];

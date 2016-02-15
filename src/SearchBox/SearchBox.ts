@@ -5,6 +5,7 @@ import {customElement, bindable, inject} from 'aurelia-framework';
 export class OfficeSearchBox {
 
     @bindable searchButton:boolean = false;
+    @bindable searchBoxLabelText:string = "Search"
     @bindable text:string = '';
     isActive:boolean = false;
     

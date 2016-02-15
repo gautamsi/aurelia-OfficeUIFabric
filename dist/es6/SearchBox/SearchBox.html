@@ -33,9 +33,9 @@
         <input value.bind="text" class="ms-SearchBox-field ${searchButton === true || searchButton === 'true' ? 'searchButton' : ''} ${hovering ? 'hovering' : ''}"
         ref="$searchField" focus.trigger="searchFieldFocus()" blur.trigger="searchFieldBlur()"
         mouseover.trigger="searchFieldMouseOver()" mouseout.delegate="searchFieldMouseOut()">
-        <label class="ms-SearchBox-label ${searchBoxLabelVisible ? '' : 'hidden'}"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i>Search</label>
+        <label class="ms-SearchBox-label ${searchBoxLabelVisible ? '' : 'hidden'}"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i>${searchBoxLabelText}</label>
         <button mousedown.trigger="cancelButtonMouseDown()" class="ms-SearchBox-closeButton"><i class="ms-Icon ms-Icon--x"></i></button>
-        <button if.bind="searchButton === true || searchButton" class="ms-SearchBox-searchButton" 
+        <button if.bind="searchButton === true || searchButton" class="ms-SearchBox-searchButton ${text.length == 0? 'hiden':''}"
             mousedown.trigger="searchButtonMouseDown($event)"><i class="ms-Icon ms-Icon--search"></i></button>
     </div>
 </template>

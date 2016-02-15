@@ -1,0 +1,19 @@
+<template>
+    <div class="ms-Panel ms-Panel--${size} ${isOpen ? 'is-open' : ''} ${closing ? 'ms-Panel-animateOut' : ''} ${opening ? 'ms-Panel-animateIn' : ''}">
+        <div class="ms-Overlay ms-Overlay--dark ms-PanelAction-close" ref="$closeOverlay" click.delegate="closing = true"></div>
+        <div class="ms-Panel-main"
+            ref="$panelMain">
+            <div class="ms-Panel-commands">
+                <content select="office-commandbar"></content>
+            </div>
+            <div class="ms-Panel-contentInner">
+                <span class="ms-Panel-headerText">
+            ${headerText}                          
+          </span>
+                <p class="ms-font-m">
+                    <content select="office-panel-content"></content>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
