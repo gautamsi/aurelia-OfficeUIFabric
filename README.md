@@ -15,22 +15,35 @@ Following is working - look at  [sample/dist/welcome.html](https://github.com/ga
 - Label
 - Panel
 
-How to run sample
-````cmd
+#Prerequistes
+To build the project under Windows you have to ensure that you have 
+[Python](https://www.python.org/) as well as the C++ command line tools installed (if you are using
+Visual Studio, install Visual Studio C++ components during setup).
 
-git clone
+#How to run the sample
+    cmd
+    
+    git clone
+    
+    cd aurelia-OfficeUIFabric
+    
+    npm install
+    jspm install -y
+    
+    cd sample
+    jspm install -y
+    npm install
+    
+    cd..
+    
+    gulp serve
 
-cd aurelia-OfficeUIFabric
-
-npm install
-jspm install -y
-
-cd sample
-jspm install -y
-npm install
-
-cd..
-
-gulp serve
-
-````
+#Usage
+To install the plugin in your Aurelia project, install it using the jspm command
+```
+jspm install github:gautamsi/aurelia-OfficeUIFabric
+```
+Afterwards, you can extend your main.ts with the following code snippet that loads the plugin (assuming you are using the Aurelia Skeleton):
+```
+aurelia.use.plugin('gautamsi/aurelia-OfficeUIFabric');
+```
