@@ -72,7 +72,6 @@
       "bootstrap": "github:twbs/bootstrap@^3.3.5",
       "fetch": "github:github/fetch@^0.10.1",
       "font-awesome": "npm:font-awesome@^4.5.0",
-      "office-ui-fabric": "npm:office-ui-fabric@^1.2.1",
       "text": "github:systemjs/plugin-text@^0.0.3"
     },
     "devDependencies": {
@@ -82,6 +81,5 @@
     }
   },
   "dependencies": {
-    "office-ui-fabric": "^1.2.1"
   }
 }
