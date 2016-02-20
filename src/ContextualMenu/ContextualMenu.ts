@@ -1,4 +1,4 @@
-import {customElement, bindable, inject} from 'aurelia-framework';
+import {customElement, bindable, inject, child, children, useShadowDOM} from 'aurelia-framework';
 
 /**
  *  workaround with official fabric js 
@@ -40,26 +40,21 @@ import {customElement, bindable, inject} from 'aurelia-framework';
  
 
 import "./Jquery.ContextualMenu";
+import {OfficeNavBarItem} from "../Navbar/NavBarItem";
+import {OfficeContextualMenuItem} from "./ContextualMenuItem";
 
-@inject(Element)
+//@useShadowDOM()
+@inject(Element, OfficeNavBarItem)
 @customElement('office-contextualmenu')
 export class OfficeContextualMenu {
-    @bindable type: string = ListItemType[ListItemType.default];
-    @bindable documentIcon:string = "documentPDF";
-    @bindable primaryText:string = null;
-    @bindable secondaryText:string = null;
-    @bindable tertiaryText:string = null;
-    @bindable metaText:string = null;
-    @bindable image:string = null;
-    @bindable imagealt:string = null;
     @bindable tooltip:string = null;
-    @bindable isSelected:boolean;// = false;
-    @bindable selectable:boolean;// = false;
-    @bindable hasImage:boolean;// = false;
+    
+    @children('office-contextualmenu-item') $menuItems:OfficeContextualMenuItem[];
     
     @bindable navbarChild:boolean = false;
     @bindable isOpen:boolean;// = false;
     @bindable multiSelect:boolean;// = false;
+    
 
     darkTextCss:string="lightText" //darkText
     showPresence:boolean = false;
@@ -70,24 +65,21 @@ export class OfficeContextualMenu {
     selectableCss:string = null;
     
     ctxMenuRoot:Element;
-    constructor(private element:Element){
+    constructor(private element:Element, private $parentNavBarItem){
         
     }
-  
 
-    clickHandler(){
-        //this.element.dispatchEvent(new Event('click'));
-        console.log("clicked toggler");
-    }
     attached(){
         if(this.navbarChild) 
             return;
         
        $(this.ctxMenuRoot).ContextualMenu();
     }
-}
-
-export enum ListItemType {
-    default,
-    document    
+    closeDeselectChild(sourceMenuItem:OfficeContextualMenuItem){
+        this.$menuItems.forEach((item,index)=>{
+            if(item != sourceMenuItem){
+                item.closeDeselectItem();
+            }
+        });
+    }
 }

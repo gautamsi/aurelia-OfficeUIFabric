@@ -67,6 +67,14 @@ export class Welcome {
     listiconclick( data:any, $event:any){
         //this.listicons.pop();
     }
+    navSearch(searchText){
+        console.log(searchText);
+        
+    }
+    menuItemClick($menuItem, $navmenuitem){
+        console.log($menuItem);
+        console.log($navmenuitem);
+    }
 
 }
 
