@@ -15,11 +15,6 @@ Following is working - look at  [sample/dist/welcome.html](https://github.com/ga
 - Label
 - Panel
 
-#Prerequistes
-To build the project under Windows you have to ensure that you have 
-[Python](https://www.python.org/) as well as the C++ command line tools installed (if you are using
-Visual Studio, install Visual Studio C++ components during setup).
-
 #How to run the sample
     cmd
     
