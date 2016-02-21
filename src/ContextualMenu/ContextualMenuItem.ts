@@ -14,7 +14,6 @@ export class OfficeContextualMenuItem {
     @bindable header: boolean = false;
     @bindable disabled: boolean;
     @bindable({ defaultBindingMode: 2 /* bindingMode.twoWay */ }) selected: boolean = false;
-    @bindable itemClick: Function;
     @bindable click: Function;
     @child('office-contextualmenu') $contextualMenu: OfficeContextualMenu;
     constructor(private element: Element, private $parentMenu: OfficeContextualMenu) {
@@ -27,10 +26,7 @@ export class OfficeContextualMenuItem {
         if (this.disabled) {
             return;
         }
-        
-        if (this.itemClick && typeof this.itemClick === 'function') {
-            this.itemClick();
-        }
+       
         if (this.click && typeof this.click === 'function') {
             this.click({$menuItem:this});
         }
@@ -70,10 +66,6 @@ export class OfficeContextualMenuItem {
                 $event.stopPropagation();
             }
             
-        }
-
-        if (this.itemClick && typeof this.itemClick === 'function') {
-            this.itemClick();
         }
     }
     closeDeselectItem(){

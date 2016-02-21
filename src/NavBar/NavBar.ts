@@ -13,12 +13,8 @@ export class OfficeNavBar {
     
     isOpen:boolean = false;
     $navBarRoot: Element;
-    @children('ms-NavBar-item--search')    $searchBoxes: Element[];
-    @children('.ms-NavBar-item')    $searchBox: Element[];
-    @children('li')    lis: Element[];
-    @children('div')    divs: Element[];
+    @children('.ms-NavBar-item--search')    $searchBoxes: Element[];    
     @children('office-navbar-item')   $navItems: OfficeNavBarItem[];
-    
     
     
     constructor(private element: Element) {

@@ -4,7 +4,7 @@ import {customElement, bindable, inject} from 'aurelia-framework';
 @customElement('office-listitem')
 export class OfficeListItem {
     @bindable type: string = ListItemType[ListItemType.default];
-    @bindable documentIcon:string = "documentPDF";
+    @bindable icon:string = "checkboxEmpty";
     @bindable primaryText:string = null;
     @bindable secondaryText:string = null;
     @bindable tertiaryText:string = null;
@@ -15,6 +15,7 @@ export class OfficeListItem {
     @bindable isSelected:boolean;// = false;
     @bindable selectable:boolean;// = false;
     @bindable hasImage:boolean;// = false;
+    @bindable hasIcon:boolean;// = false;
     @bindable isUnseen:boolean;// = false;
     @bindable isUnread:boolean;// = false;
     
@@ -42,5 +43,5 @@ export class OfficeListItem {
 
 export enum ListItemType {
     default,
-    document    
+    document
 }

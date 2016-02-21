@@ -18,6 +18,8 @@ export class OfficeNavBarItem {
     @bindable({ defaultBindingMode: 2 /* bindingMode.twoWay */ }) searchText: string = '';
     @bindable isOpen: boolean = false;
     @bindable isSelected: boolean = false;
+    @bindable href: string = '#';
+    @bindable click: Function;
 
     searchBoxCSS: string = 'ms-NavBar-item--search ms-u-hiddenSm';
     $searchField: HTMLInputElement;
@@ -36,6 +38,15 @@ export class OfficeNavBarItem {
                 // event.stopPropagation();
                 this.search({ $searchText: this.searchText });
             }
+        }
+    }
+    linkClickHandler($event: Event) {
+        if (this.disabled) {
+            return;
+        }
+
+        if (this.click && typeof this.click === 'function') {
+            this.click({$menuItem:this});
         }
     }
 

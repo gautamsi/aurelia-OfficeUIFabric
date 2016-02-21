@@ -1,10 +1,25 @@
 <template>
+    <style scoped>
+        .ms-ListItem .ms-ListItem--icon.ms-ListItem-itemIcon .ms-Icon {
+            font-size: 38px;
+            line-height: 70px;
+            color: #666;
+        }
+        
+        .ms-ListItem-tertiaryText {
+            line-height: 16px;
+
+        }
+    </style>
     <div class="ms-ListItem ${hasImage ? 'ms-ListItem--image ' : (type=== 'document' ? 'ms-ListItem--document ' : ' ')} ${selectable ? 'is-selectable ' : ' '} ${isSelected ? 'is-selected ' : ' '} ${isUnseen ? 'is-unseen ' : ' '} ${isUnread ? 'is-unread ' : ' '}">
         <div if.bind="hasImage" class="ms-ListItem-image" style="background-color: #767676;">
             <img src="${image}" class="ms-ListItem-image" alt="${imagealt}">
         </div>
-        <div if.bind="type==='document'" class="ms-ListItem-itemIcon ms-ListItem-itemIcon">
-            <i class="ms-Icon ms-Icon--${documentIcon}"></i>
+        <div if.bind="type ==='document'" class="ms-ListItem-itemIcon">
+            <i class="ms-Icon ms-Icon--${icon}"></i>
+        </div>
+        <div if.bind="hasIcon && !hasImage" class="ms-ListItem--icon ms-ListItem-itemIcon  ms-ListItem-image" style="text-align:center">
+            <i class="ms-Icon ms-Icon--${icon}"></i>
         </div>
         <span class="ms-ListItem-primaryText ">${primaryText}</span>
         <span class="ms-ListItem-secondaryText ">${secondaryText}</span>
