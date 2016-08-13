@@ -2,6 +2,7 @@ export function configure(config) {
   config.globalResources('./ContextualMenu/ContextualMenu');
   config.globalResources('./ContextualMenu/ContextualMenuItem');
   config.globalResources('./Button/Button');
+  config.globalResources('./Icon/Icon');
   config.globalResources('./Persona/Persona');
   config.globalResources('./Overlay/Overlay');
   config.globalResources('./Label/Label');

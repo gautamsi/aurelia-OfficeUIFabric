@@ -23,7 +23,6 @@ export class Panel {
     }
 
     attached() {
-        //this.element.dispatchEvent(new Event('click'));
         Panel.prefixedEvent(this.$panelMain, 'AnimationEnd', (event) => {
             if (event.animationName.indexOf('Out') > -1) {
 

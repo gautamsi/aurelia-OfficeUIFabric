@@ -1,4 +1,4 @@
-<template>
+<template click.delegate="clickHandler($event)">
     <style scoped>
         .ms-ListItem .ms-ListItem--icon.ms-ListItem-itemIcon .ms-Icon {
             font-size: 38px;
@@ -8,7 +8,10 @@
         
         .ms-ListItem-tertiaryText {
             line-height: 16px;
-
+        }
+        
+        .icon-right {
+            float: right;
         }
     </style>
     <div class="ms-ListItem ${hasImage ? 'ms-ListItem--image ' : (type=== 'document' ? 'ms-ListItem--document ' : ' ')} ${selectable ? 'is-selectable ' : ' '} ${isSelected ? 'is-selected ' : ' '} ${isUnseen ? 'is-unseen ' : ' '} ${isUnread ? 'is-unread ' : ' '}">
@@ -18,15 +21,16 @@
         <div if.bind="type ==='document'" class="ms-ListItem-itemIcon">
             <i class="ms-Icon ms-Icon--${icon}"></i>
         </div>
-        <div if.bind="hasIcon && !hasImage" class="ms-ListItem--icon ms-ListItem-itemIcon  ms-ListItem-image" style="text-align:center">
+        <div if.bind="hasIcon && !hasImage" class="ms-ListItem--icon ms-ListItem-itemIcon  ms-ListItem-image icon-${iconAlign}" style="text-align:center"
+        click.delegate="iconClickHandler()">
             <i class="ms-Icon ms-Icon--${icon}"></i>
         </div>
         <span class="ms-ListItem-primaryText ">${primaryText}</span>
         <span class="ms-ListItem-secondaryText ">${secondaryText}</span>
         <span if.bind="type!=='document'" class="ms-ListItem-tertiaryText ">${tertiaryText}</span>
-        <span if.bind="type!=='document'" class="ms-ListItem-metaText ">${metaText}</span>
+        <span if.bind="type!=='document' && iconAlign !== 'right'" class="ms-ListItem-metaText ">${metaText}</span>
         <div class="ms-ListItem-selectionTarget js-toggleSelection " click.trigger="isSelected = !isSelected"></div>
-        <div class="ms-ListItem-actions ">
+        <div class="ms-ListItem-actions" show.bind="iconAlign !== 'right'">
             <content select="office-listitem-action"></content>
         </div>
     </div>

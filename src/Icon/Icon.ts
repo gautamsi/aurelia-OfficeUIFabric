@@ -1,12 +1,13 @@
 import {customElement, bindable} from 'aurelia-framework';
 
 
-@customElement('office-listitem-action')
+@customElement('office-icon')
 export class OfficeListItemAction {
     
-    @bindable icon:string = "person";    
+    @bindable icon:string = "checkboxEmpty";    
     @bindable click:Function;
-
+    @bindable type:string = "default";
+    
     constructor(){
         
     }
