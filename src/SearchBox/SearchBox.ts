@@ -5,9 +5,11 @@ import {customElement, bindable, inject} from 'aurelia-framework';
 export class OfficeSearchBox {
 
     @bindable searchButton:boolean = false;
+    @bindable searchBoxLabelText:string = "Search"
     @bindable text:string = '';
-    isActive:boolean = false;
+    @bindable search:Function;
     
+    isActive:boolean = false;
     $searchField:Element;
     $searchButton:Element;
     $searchBoxLabel:Element;
@@ -24,7 +26,6 @@ export class OfficeSearchBox {
         this.isActive = true;
     }
     searchFieldBlur(){
-        console.log("searchField.Blur");
         if(this.cancel){
             this.text = '';
             //this.hovering = true;
@@ -57,8 +58,11 @@ export class OfficeSearchBox {
     }
     
     searchButtonMouseDown(){
-        let e = new Event('search',{bubbles:true, cancelable:true});
-        this.element.dispatchEvent(e);
+        if(this.search){
+            this.search({$searchText:this.text});
+        }
+        // let e = new Event('search',{bubbles:true, cancelable:true});
+        // this.element.dispatchEvent(e);
     }
     
     attached(){    

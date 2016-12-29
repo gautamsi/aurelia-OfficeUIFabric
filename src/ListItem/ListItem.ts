@@ -4,7 +4,10 @@ import {customElement, bindable, inject} from 'aurelia-framework';
 @customElement('office-listitem')
 export class OfficeListItem {
     @bindable type: string = ListItemType[ListItemType.default];
-    @bindable documentIcon:string = "documentPDF";
+    @bindable icon:string = "checkboxEmpty";
+    @bindable iconAlign:string = "left";
+    @bindable iconClick:Function;
+    @bindable click:Function;
     @bindable primaryText:string = null;
     @bindable secondaryText:string = null;
     @bindable tertiaryText:string = null;
@@ -12,11 +15,12 @@ export class OfficeListItem {
     @bindable image:string = null;
     @bindable imagealt:string = null;
     @bindable tooltip:string = null;
-    @bindable isSelected:boolean;// = false;
-    @bindable selectable:boolean;// = false;
-    @bindable hasImage:boolean;// = false;
-    @bindable isUnseen:boolean;// = false;
-    @bindable isUnread:boolean;// = false;
+    @bindable isSelected:boolean = false;
+    @bindable selectable:boolean = false;
+    @bindable hasImage:boolean = false;
+    @bindable hasIcon:boolean = false;
+    @bindable isUnseen:boolean = false;
+    @bindable isUnread:boolean = false;
     
     darkTextCss:string="lightText" //darkText
     showPresence:boolean = false;
@@ -32,8 +36,14 @@ export class OfficeListItem {
   
 
     clickHandler(){
-        //this.element.dispatchEvent(new Event('click'));
-        console.log("clicked toggler");
+        if(this.click){
+           this.click(); 
+        }
+    }
+    iconClickHandler(){
+        if(this.iconClick){
+           this.iconClick(); 
+        }
     }
     attached(){
        
@@ -42,5 +52,9 @@ export class OfficeListItem {
 
 export enum ListItemType {
     default,
-    document    
+    document
+}
+export enum ListItemIconAlign {
+    left,
+    right
 }

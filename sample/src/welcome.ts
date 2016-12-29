@@ -6,7 +6,7 @@ export class Welcome {
     lastName = 'Doe';
     searchText:string='';
     previousValue = this.fullName;
-
+    toggle:boolean = false;
     types: string[] = ["basic", "primary", "command", "hero", "compound"];
     type: string = "basic";
     icons: string[] = ["none", "minus", "home", "minus", "none"];
@@ -66,6 +66,14 @@ export class Welcome {
     
     listiconclick( data:any, $event:any){
         //this.listicons.pop();
+    }
+    navSearch(searchText){
+        console.log(searchText);
+        
+    }
+    menuItemClick($menuItem, $navmenuitem){
+        console.log($menuItem);
+        console.log($navmenuitem);
     }
 
 }

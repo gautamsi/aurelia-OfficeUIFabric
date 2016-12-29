@@ -1,7 +1,15 @@
 <template>
-    <li class="ms-NavBar-item ${hasMenu ? 'ms-NavBar-item--hasMenu' : ''} ${right ? 'ms-NavBar-item--right' : ''} ${disabled ? 'is-disabled' : ''}">
-        <a class="ms-NavBar-link">${linkText}</a>
-        <i if.bind="icon !== ''" class="${hasMenu ? 'ms-NavBar-chevronDown' : ''} ms-Icon ms-Icon--${icon}"></i>
+    <li class="ms-NavBar-item ${hasMenu ? 'ms-NavBar-item--hasMenu' : ''} ${right ? 'ms-NavBar-item--right' : ''} ${disabled ? 'is-disabled' : ''} ${type === 'search' ? searchBoxCSS :''} ${isSelected ? 'is-selected' : ''}">
+        <template if.bind="type !='search'">
+            <a class="ms-NavBar-link" href.bind="href" click.trigger="linkClickHandler($event)">${linkText}
+                <i if.bind="icon !== ''" class="${hasMenu ? 'ms-NavBar-chevronDown' : ''} ms-Icon ms-Icon--${icon}"></i><!-- moved <i>inside to get click trigger when there is no text -->
+            </a>
+        </template>
         <content if.bind="hasMenu" select="office-contextualmenu"></content>
+        <template if.bind="type =='search'">
+            <div class="ms-TextField">
+                <input ref="$searchField" class="ms-TextField-field" value.bind="searchText" keyup.delegate="searchButtonClick($event)">
+            </div>
+        </template>
     </li>
 </template>

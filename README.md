@@ -12,23 +12,33 @@ Following is working - look at  [sample/dist/welcome.html](https://github.com/ga
 - Overlay (needs improvement)
 - NavBar
 - ContextualMenu
+- Label
+- Panel
 
-How to run sample
-````cmd
+#How to run the sample
+    cmd
+    
+    git clone
+    
+    cd aurelia-OfficeUIFabric
+    
+    npm install
+    jspm install -y
+    
+    cd sample
+    jspm install -y
+    npm install
+    
+    cd..
+    
+    gulp serve
 
-git clone
-
-cd aurelia-OfficeUIFabric
-
-npm install
-jspm install -y
-
-cd sample
-jspm install -y
-npm install
-
-cd..
-
-gulp serve
-
-````
+#Usage
+To install the plugin in your Aurelia project, install it using the jspm command
+```
+jspm install github:gautamsi/aurelia-OfficeUIFabric
+```
+Afterwards, you can extend your main.ts with the following code snippet that loads the plugin (assuming you are using the Aurelia Skeleton):
+```
+aurelia.use.plugin('gautamsi/aurelia-OfficeUIFabric');
+```
