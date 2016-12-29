@@ -1,21 +1,23 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
 var path = require('path');
-var paths = require('../paths');
+var browserSync = require('browser-sync');
+var paths = require('../pathsSample');
 
-// this task utilizes the browsersync plugin
-// to create a dev server instance
-// at http://localhost:9000
-gulp.task('serve', [], function(done) {
-//gulp.task('serve', ['build'], function(done) {
+gulp.task('serve', ['dev-build', 'sample-build'], function(done) {
   var bs = browserSync.create('Sample server');
-  bs.init({
+
+  var options = {
     server: {
-      baseDir: paths.sample,
+      baseDir: ['./sample'],
       routes: {
-        '/aurelia-officeuifabric': path.join(paths.output, 'amd')
-      },
-      logger:"dev"
+        '/root/': './'
+      }
     },
-  }, done);
+    ghostMode:false,
+    open:false
+  };
+
+  // Create a route to the build output directory so we can load the plugin from the subdir
+  options.server.routes['/dist/' + paths.packageName] = paths.plugin;
+  bs.init(options, done);
 });

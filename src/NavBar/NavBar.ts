@@ -4,7 +4,7 @@ import {customElement, bindable, inject, child, children, useShadowDOM } from 'a
 /** workaround for menu item slection change after click , change $(this).siblings('.ms-NavBar-item').removeClass('is-selected'); with  $navBar.find('.ms-NavBar-item').removeClass('is-selected'); */
 import "./Jquery.NavBar";
 import {OfficeNavBarItem} from "./NavBarItem";
-
+declare var $;
 
 //@useShadowDOM()
 @inject(Element)

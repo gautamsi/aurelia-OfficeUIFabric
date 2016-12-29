@@ -1,9 +1,23 @@
 var gulp = require('gulp');
-var paths = require('../paths');
+var pathsSample = require('../pathsSample');
+var pathsBuild = require('../pathsBuild');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
-gulp.task('clean', function() {
-  return gulp.src([paths.output])
+// deletes all files in the output path
+gulp.task('clean-sample', function() {
+  return gulp.src([pathsSample.output])
     .pipe(vinylPaths(del));
 });
+
+gulp.task('clean-build', function() {
+  return gulp.src([pathsBuild.output])
+    .pipe(vinylPaths(del));
+});
+
+gulp.task('clean-dev', function() {
+  return gulp.src([pathsBuild.outputDev])
+    .pipe(vinylPaths(del));
+});
+
+

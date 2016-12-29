@@ -1,5 +1,5 @@
 import {customElement, bindable, inject, child, children, useShadowDOM} from 'aurelia-framework';
-
+declare var $;
 /**
  *  workaround with official fabric js 
         // Deselect all of the items and close any menus.

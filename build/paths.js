@@ -1,26 +1,14 @@
-var path = require('path');
-var outputRoot = 'dist/';
 var appRoot = 'src/';
-
-var fs = require('fs');
-var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+var outputRoot = 'dist/';
 
 module.exports = {
   root: appRoot,
-  source: appRoot + '**/*.ts',
+  source: appRoot + '**/*.js',
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
-  js: appRoot + '**/*.js',
-  less: appRoot + '**/*.less',
+  style: 'styles/**/*.css',
   output: outputRoot,
-  sample: 'sample',
-  doc:'./doc',
+  doc: './doc',
   e2eSpecsSrc: 'test/e2e/src/*.js',
-  e2eSpecsDist: 'test/e2e/dist/',
-  packageName: pkg.name,
-  styleFolder: './styles',
-  dtsSrc: [
-    'typings/**/*.ts',
-    '!./jspm_packages/**/*.d.ts'
-  ],
+  e2eSpecsDist: 'test/e2e/dist/'
 };

@@ -1,111 +1,137 @@
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
-var to5 = require('gulp-babel');
-var paths = require('../paths');
-var compilerOptions = require('../babel-options');
-var assign = Object.assign || require('object.assign');
-var changed = require('gulp-changed');
-var plumber = require('gulp-plumber');
+var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
-var notify = require("gulp-notify");
-var typescript = require('gulp-typescript');
-var tsc = require('typescript');
+var plumber = require('gulp-plumber');
+var assign = Object.assign || require('object.assign');
+var merge = require('merge2');
+var paths = require('../pathsBuild');
+var changed = require('gulp-changed');
+var runSequence = require('run-sequence');
 
-function getTsProject(target, moduleName) {
-    return typescript.createProject('./tsconfig.json', { typescript: tsc, target: target || "es5", module: moduleName || "commonjs", experimentalDecorators:true, emitDecoratorMetadata:true });
+
+var tsProjectAMD = ts.createProject('./tsconfig.json', {
+  typescript: require('typescript'),
+  "declaration": true,
+  target: 'es5',
+  module: 'amd'
+});
+
+
+var tsProjectES6 = ts.createProject('./tsconfig.json', {
+  typescript: require('typescript'),
+  "declaration": true
+});
+
+
+var tsProjectCJS = ts.createProject('./tsconfig.json', {
+  typescript: require('typescript'),
+  "declaration": true,
+  target: 'es5',
+  module: 'commonjs'
+});
+
+
+var tsProjectSystem = ts.createProject('./tsconfig.json', {
+  typescript: require('typescript'),
+  "declaration": true,
+  target: 'es5',
+  module: 'system'
+});
+
+
+function build(tsProject, outputPath) {
+  var tsResult = gulp.src(paths.dtsSrc.concat(paths.source))
+    .pipe(plumber())
+    .pipe(changed(outputPath, {
+      extension: '.ts'
+    }))
+    .pipe(sourcemaps.init({
+      loadMaps: true
+    }))
+    .pipe(tsProject());
+
+  return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done. 
+    tsResult.dts.pipe(gulp.dest(outputPath)),
+    tsResult.js.pipe(gulp.dest(outputPath))
+  ])
+    .pipe(sourcemaps.write('.', {
+      includeContent: false,
+      sourceRoot: paths.root
+    }))
+    .pipe(gulp.dest(outputPath))
 }
-var es6Dir = paths.output + 'es6';
-var amdDir = paths.output + 'amd';
-var cjsDir= paths.output + 'commonjs';
-var sysDir= paths.output + 'system';
 
-gulp.task('build-html-es6', function () {
-    return gulp.src([paths.html, paths.css, paths.js])
-        .pipe(changed(es6Dir))
-        .pipe(gulp.dest(es6Dir));
+
+gulp.task('build-es2015', function () {
+  return build(tsProjectES6, paths.output + 'es2015');
 });
 
-gulp.task('build-es6', ['build-html-es6'], function () {
-    var tsProject = getTsProject("es6", "es6");
-    return gulp.src(paths.dtsSrc.concat(paths.source))
-        .pipe(plumber())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(changed(es6Dir, { extension: '.js' }))
-        .pipe(typescript(tsProject))
-        .pipe(sourcemaps.write({ includeContent: true }))
-        .pipe(gulp.dest(es6Dir));
-    // 
-    // return gulp.src(paths.source)
-    // .pipe(gulp.dest(paths.output + 'es6'));
+
+gulp.task('build-commonjs', function () {
+  return build(tsProjectCJS, paths.output + 'commonjs');
 });
 
-gulp.task('build-html-commonjs', function () {
-    return gulp.src([paths.html, paths.css, paths.js])
-        .pipe(changed(cjsDir))
-        .pipe(gulp.dest(cjsDir));
+
+gulp.task('build-amd', function () {
+  return build(tsProjectAMD, paths.output + 'amd');
 });
 
-gulp.task('build-commonjs', ['build-html-commonjs'], function () {
-    var tsProject = getTsProject("es5", "commonjs");
-    return gulp.src(paths.dtsSrc.concat(paths.source))
-        .pipe(plumber())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(changed(cjsDir, { extension: '.js' }))
-        .pipe(typescript(tsProject))
-        .pipe(sourcemaps.write({ includeContent: true }))
-        .pipe(gulp.dest(cjsDir));
-        
-    // return gulp.src(paths.source)
-    // .pipe(to5(assign({}, compilerOptions, { modules: 'common' })))
-    // .pipe(gulp.dest(paths.output + 'commonjs'));
+
+gulp.task('build-system', function () {
+  return build(tsProjectSystem, paths.output + 'system');
 });
 
-gulp.task('build-html-amd', function () {
-    return gulp.src([paths.html, paths.css, paths.js])
-        .pipe(changed(amdDir))
-        .pipe(gulp.dest(amdDir));
+
+gulp.task('build-html', function () {
+  return gulp.src(paths.html)
+    .pipe(gulp.dest(paths.output + 'es2015'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'system'));
 });
 
-gulp.task('build-amd', ['build-html-amd'], function () {
-    var tsProject = getTsProject("es5", "amd");
-    return gulp.src(paths.dtsSrc.concat(paths.source))
-        .pipe(plumber())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(changed(amdDir, { extension: '.js' }))
-        .pipe(typescript(tsProject))
-        .pipe(sourcemaps.write({ includeContent: true }))
-        .pipe(gulp.dest(amdDir));
-        
-    // return gulp.src(paths.source)
-    // .pipe(to5(assign({}, compilerOptions, { modules: 'amd' })))
-    // .pipe(gulp.dest(paths.output + 'amd'));
+
+gulp.task('build-css', function () {
+  return gulp.src(paths.css)
+    .pipe(gulp.dest(paths.output + 'es2015'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'system'));
 });
 
-gulp.task('build-html-system', function () {
-    return gulp.src([paths.html, paths.css, paths.js])
-        .pipe(changed(sysDir))
-        .pipe(gulp.dest(sysDir));
+
+gulp.task('build-json', function () {
+  return gulp.src(paths.json)
+    .pipe(gulp.dest(paths.output + 'es2015'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'system'));
 });
 
-gulp.task('build-system', ['build-html-system'], function () {
-    var tsProject = getTsProject("es5", "system");
-    return gulp.src(paths.dtsSrc.concat(paths.source))
-        .pipe(plumber())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(changed(sysDir, { extension: '.js' }))
-        .pipe(typescript(tsProject))
-        .pipe(sourcemaps.write({ includeContent: true }))
-        .pipe(gulp.dest(sysDir));
-        
-    // return gulp.src(paths.source)
-    // .pipe(to5(assign({}, compilerOptions, { modules: 'system' })))
-    // .pipe(gulp.dest(paths.output + 'system'));
+gulp.task('build-js', function () {
+  return gulp.src(paths.js)
+    .pipe(gulp.dest(paths.output + 'es2015'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'system'));
 });
+
+gulp.task('build-woff2', function () {
+  return gulp.src(paths.woff2)
+    .pipe(gulp.dest(paths.output + 'es2015'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'system'));
+});
+
+
+
+
 
 gulp.task('build', function (callback) {
-    return runSequence(
-        'clean',
-        ['build-es6', 'build-commonjs', 'build-amd', 'build-system'],
-        callback
-        );
+  return runSequence(
+    'clean-build', ['build-json', 'build-js', 'build-woff2', 'build-css', 'build-html', 'build-es2015', 'build-amd', 'build-system', 'build-commonjs'],
+    callback
+  );
 });
+
