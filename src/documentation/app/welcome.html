@@ -1,0 +1,326 @@
+<template>
+    <style type="text/css">
+        .sample-wrapper .ms-Overlay {
+            display: block;
+            position: relative;
+            height: 50px;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+            /** For visibility of lighter variant */
+        }
+        
+        /*.ms-Spinner.ms-Spinner--large {
+            width: 48px;
+            height: 48px;
+        }*/
+        
+        #componentWrapper {
+            z-index: -1;
+            width: calc(100% - 56px);
+            height: 100%;
+            padding: 0 28px;
+        }
+        
+        #componentWrapper .ms-ContextualMenu.is-open {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .ms-NavBar-item--hasMenu .ms-ContextualMenu{
+            z-index: 200;
+        }
+    </style>
+    <section class="au-animate">
+        <h2>${heading}</h2>
+        <office-button ref="btn5" type="command" label="Open Panel" icon = "home"
+                        click.trigger="toggle = !toggle"></office-button>
+        <office-panel ref="panel" header-text="Panel Header here" open.two-way="toggle">
+            <office-panel-content>
+                <office-searchbox></office-searchbox>
+                <!--<office-searchbox repeat.for="icon of listicons" " search-button.bind="true " search.delegate="listiconclick(icon, $event) "></office-searchbox>-->
+
+                <office-spinner></office-spinner>
+                <office-spinner size="large"></office-spinner>
+                <office-spinner show-text='true'></office-spinner>
+                <office-spinner size="large" text="Spinning..."></office-spinner>
+
+            </office-panel-content>
+        </office-panel>
+        <office-navbar search.delegate="listiconclick($event)">
+            <office-navbar-item link-text="Search" type="search"></office-navbar-item>
+            <office-navbar-item link-text="Search" search.call="navSearch($searchText)" type="search" right="true"></office-navbar-item>
+            <office-navbar-item link-text="Home" ></office-navbar-item>
+            <office-navbar-item ref="navbarmenu" link-text="Channels" has-menu.bind="true" icon="chevronDown">
+                <office-contextualmenu navbar-child.bind="true">
+                    <office-contextualmenu-item link-text="Animals" click.call="menuItemClick($menuItem)" item-click.call="menuItemClick($menuItem)"></office-contextualmenu-item>
+                    <office-contextualmenu-item link-text="Books" click.call="menuItemClick($menuItem, navbarmenu)"></office-contextualmenu-item>
+                    <office-contextualmenu-item link-text="Education"></office-contextualmenu-item>
+                    <office-contextualmenu-item link-text="Music"></office-contextualmenu-item>
+                    <office-contextualmenu-item link-text="Sports" disabled.bind="true"></office-contextualmenu-item>
+                    <!--<office-contextualmenu-item has-menu.bind="true" link-text="Books" icon="chevronRight"> //no nested menu support for now
+                        <office-contextualmenu>
+                            <office-contextualmenu-item link-text="Fiction"></office-contextualmenu-item>
+                            <office-contextualmenu-item link-text="Humor"></office-contextualmenu-item>
+                            <office-contextualmenu-item selected.bind="true" link-text="Magazines"></office-contextualmenu-item>
+                            <office-contextualmenu-item link-text="Non-fiction"></office-contextualmenu-item>
+                            <office-contextualmenu-item link-text="Textbooks" disabled.bind="true"></office-contextualmenu-item>
+                        </office-contextualmenu>
+                    </office-contextualmenu-item>-->
+                </office-contextualmenu>
+            </office-navbar-item>
+            <office-navbar-item link-text="My Videos"></office-navbar-item>
+            <office-navbar-item link-text="More" disabled.bind="true"></office-navbar-item>
+            <office-navbar-item link-text="Upload" right.bind="true" icon="upload"></office-navbar-item>
+        </office-navbar>        
+        <br>
+        <br>
+        <br>
+
+        <div id="componentWrapper">
+            <office-contextualmenu is-open.bind="true">
+                <office-contextualmenu-item link-text="Animals" icon="home" click.call="menuItemClick($menuItem)" item-click.call="menuItemClick($menuItem)"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Books"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Education"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Music"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Sports" disabled.bind="true"></office-contextualmenu-item>
+            </office-contextualmenu>
+
+            <office-contextualmenu is-open.bind="true">
+                <office-contextualmenu-item link-text="Animals"></office-contextualmenu-item>
+                <office-contextualmenu-item has-menu.bind="true" link-text="Books" icon="chevronRight">
+                    <office-contextualmenu>
+                        <office-contextualmenu-item link-text="Fiction"></office-contextualmenu-item>
+                        <office-contextualmenu-item link-text="Humor"></office-contextualmenu-item>
+                        <office-contextualmenu-item selected.bind="true" link-text="Magazines"></office-contextualmenu-item>
+                        <office-contextualmenu-item link-text="Non-fiction"></office-contextualmenu-item>
+                        <office-contextualmenu-item link-text="Textbooks" disabled.bind="true"></office-contextualmenu-item>
+                    </office-contextualmenu>
+                </office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Education"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Music"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Sports" disabled.bind="true"></office-contextualmenu-item>
+            </office-contextualmenu>
+
+            <office-contextualmenu multi-select.bind="true" is-open.bind="true">
+                <office-contextualmenu-item header.bind="true" header-text="SORT BY"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Date"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Sender"></office-contextualmenu-item>
+                <office-contextualmenu-item divider.bind="true"></office-contextualmenu-item>
+                <office-contextualmenu-item header.bind="true" header-text="Order"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Newest on top"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Oldest on top"></office-contextualmenu-item>
+                <office-contextualmenu-item divider.bind="true"></office-contextualmenu-item>
+                <office-contextualmenu-item header.bind="true" header-text="CONVERSATIONS"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="On"></office-contextualmenu-item>
+                <office-contextualmenu-item link-text="Off"></office-contextualmenu-item>
+            </office-contextualmenu>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+        <office-searchbox></office-searchbox>
+        <office-searchbox repeat.for="icon of listicons" "  search-button.bind="true " search.delegate="listiconclick(icon, $event) "></office-searchbox>
+        
+        <office-spinner></office-spinner>
+        <office-spinner size="large"></office-spinner>
+        <office-spinner show-text="true"></office-spinner>
+        <office-spinner size="large" text="Spinning..."></office-spinner>
+        
+        <office-list type="list">
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-image.bind="false
+        " is-unseen.bind="false " is-unread.bind="false "
+            icon=" " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="true " has-image.bind="false " is-unseen.bind="false
+        " is-unread.bind="false "
+            icon=" " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="false " is-selected.bind="false " has-image.bind="false
+        " is-unseen.bind="false " is-unread.bind="false "
+            icon=" " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-image.bind="true
+        " is-unseen.bind="true " is-unread.bind="true "
+            icon=" " image.bind="src " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-image.bind="false
+        " is-unseen.bind="true " is-unread.bind="false "
+            icon="documentPDF " type="document ">
+                <office-listitem-action repeat.for="icon of listicons.slice(1,4) " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+        </office-list>
+        
+        <office-list type="grid">
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-image.bind="false
+        " is-unseen.bind="false " is-unread.bind="false "
+            icon=" " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="true " has-image.bind="false " is-unseen.bind="false
+        " is-unread.bind="false "
+            icon=" " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="false " is-selected.bind="false " has-image.bind="false
+        " is-unseen.bind="false " is-unread.bind="false "
+            icon=" " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-image.bind="true
+        " is-unseen.bind="true " is-unread.bind="true "
+            icon=" " image.bind="src " type="default ">
+                <office-listitem-action repeat.for="icon of listicons " icon.bind="icon " click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-image.bind="false" is-unseen.bind="true" is-unread.bind="false"
+             icon="documentPDF" type="document">
+                <office-listitem-action repeat.for="icon of listicons.slice(1,4) " icon.bind="icon" click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+            <office-listitem primary-text="Alton Lafferty " secondary-text="Meeting notes " tertiary-text="Today we discussed
+        the importance of a, b, and c in regards to d. "
+            meta-text="2:42p " selectable.bind="true " is-selected.bind="false " has-icon.bind="true" is-unseen.bind="true" is-unread.bind="false"
+             icon="group" type="default">
+                <office-listitem-action repeat.for="icon of listicons.slice(1,4) " icon.bind="icon" click.delegate="listiconclick() "></office-listitem-action>
+            </office-listitem>
+        </office-list>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <!--<hr/>
+        <div class="sample-wrapper " style="width:200px;height:50px; ">
+            <office-overlay type="default " ></office-overlay>
+        </div>
+        
+        <div class="sample-wrapper " style="width:200px;height:50px; ">
+            <office-overlay type="dark " ></office-overlay>
+        </div>
+        <div class="sample-wrapper " style="width:200px;height:50px;border:red; ">
+            <office-overlay type="none " ></office-overlay>
+        </div>-->
+        
+        <office-button ref="btn1 " type.two-way="type " label.two-way="label " icon.two-way="icon
+        " description.two-way="descriptions[0] "></office-button>
+        <br>
+        <office-button ref="btn2 " type.two-way="types[1] " label.two-way="labels[1] " icon.two-way="icons[1]
+        " description.two-way="descriptions[1] "></office-button>
+        <br>
+        <office-button ref="btn3 " type.two-way="types[2] " label.two-way="labels[2] " icon.two-way="icons[2]
+        " description.two-way="descriptions[2] "></office-button>
+        <br>
+        <office-button ref="btn4 " type.two-way="types[3] " label.two-way="labels[3] " icon.two-way="icons[3]
+        " description.two-way="descriptions[3] "
+        click.delegate="btn4.type='none' "></office-button>
+        <br>
+        <office-button ref="btn5 " type.two-way="types[4] " label.two-way="labels[4] " icon.two-way="icons[4]
+        " description.two-way="descriptions[4] "
+        click.delegate="changebtn() "></office-button>
+        <br>
+        <hr/>
+
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="tiny " dark-Text.bind="true " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="tiny " dark-Text.bind="false " presence="none " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xs " dark-Text.bind="true " presence="busy " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xs " dark-Text.bind="false " presence="offline " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="sm " dark-Text.bind="true " presence="dnd " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="sm " dark-Text.bind="false " presence="away " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="reg " dark-Text.bind="true " presence="busy " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="reg " dark-text.bind="false " presence="blocked " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="lg " dark-Text.bind="true " presence="dnd " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="lg " dark-text.bind="false " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xl " dark-text.bind="true " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="square " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xl " dark-Text.bind="false " presence="none " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+ 
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="tiny " dark-Text.bind="true " presence="none " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="tiny " dark-Text.bind="false " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xs " dark-Text.bind="true " presence="blocked " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xs " dark-Text.bind="false " presence="dnd " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="sm " dark-Text.bind="true " presence="away " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="sm " dark-Text.bind="false " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="reg " dark-Text.bind="true " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="reg " dark-Text.bind="false " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="lg " dark-Text.bind="true " presence="none " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="lg " dark-Text.bind="false " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xl " dark-Text.bind="true " presence="some " name.bind="name " title.bind="title " status.bind = "status
+        " detail.bind="detail " > </office-persona></div>
+        <div><office-persona tooltip="tooltip text " shape="round " selectable.bind="selectable " image.bind="src
+        " bg-icon.bind="icon " size="xl " dark-Text.bind="false " presence="available " name.bind="name " title.bind="title
+        " status.bind = "status " detail.bind="detail " > </office-persona></div>
+
+    </section>
+</template>

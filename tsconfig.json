@@ -1,9 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": "src/",
-    "outDir": "dist/",
+    "rootDir": "./src/",
+    "outDir": "./dist/",
     "sourceMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "target": "es5",
     "module": "amd",
     "declaration": true,
@@ -30,7 +32,8 @@
   ],
   "exclude": [
     "node_modules",
-    "sample"
+    "jspm_packages",
+    "temp"
   ],
   "atom": {
     "rewriteTsconfig": false

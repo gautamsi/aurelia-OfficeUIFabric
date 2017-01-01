@@ -1,0 +1,72 @@
+<template>
+    <!--<require from="nav-bar.html"></require>-->
+    <!--<require from="bootstrap/css/bootstrap.css"></require>-->
+
+
+    <require from="side-bar.html"></require>
+    <div id="MainContainer">
+        <div id="Header" class="ms-bgColor-themeDark">
+            <div class="Header-Title ms-font-xxl ms-fontColor-white">Office UI Fabric JS</div>
+            <div class="Header-buttons">
+                <a href="https://github.com/OfficeDev/office-ui-fabric-js/" class="Header-button ms-fontColor-white">Github</a>
+            </div>
+        </div>
+        <div id="SidebarContainer">
+            <side-bar router.bind="router"></side-bar>
+        </div>
+        <div id="ContentContainer">
+            <router-view></router-view>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // Add Click handlers on DOM ready
+        addClickHandlers();
+        var docContent = document.getElementById('ContentContainer');
+        var docContentFrame = docContent.getElementsByTagName('iframe')[0];
+        var componentLinks = document.querySelectorAll(".LinkContainer a");
+        componentLinks[0].click();
+
+        function addClickHandlers() {
+            componentLinksHandler();
+            sectionCollapseHandler();
+        }
+
+        // Add click handlers for sidebar links
+        function componentLinksHandler() {
+            var componentLinks = document.querySelectorAll(".LinkContainer a");
+            for (var i = 0; i < componentLinks.length; i++) {
+                var item = componentLinks[i];
+                item.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var url = this.getAttribute("href");
+                    docContentFrame.setAttribute("src", url);
+                    removeSelected();
+                    this.classList.add("is-selected");
+                });
+            }
+        }
+
+        // Add click handler for collapsing and expanding sidebar sections
+        function sectionCollapseHandler() {
+            var sectionHeaders = document.querySelectorAll(".SidebarSection > button");
+            for (var i = 0; i < sectionHeaders.length; i++) {
+                var item = sectionHeaders[i];
+                item.addEventListener("click", function (e) {
+                    var container = this.parentElement;
+                    container.classList.toggle("is-expanded");
+                });
+            }
+        }
+
+        // Remove currently selected link
+        function removeSelected() {
+            var selectedLinks = document.querySelectorAll(".LinkContainer a.is-selected");
+            for (var i = 0; i < selectedLinks.length; i++) {
+                var item = selectedLinks[i];
+                item.classList.remove("is-selected");
+            }
+        }
+    </script>
+
+<!--<router-view></router-view>-->
+</template>
