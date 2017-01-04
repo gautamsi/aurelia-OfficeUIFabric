@@ -1,6 +1,6 @@
 <template containerless>
     <li role='listitem'>
-        <div class="ms-Nav-compositeLink is-expanded">
+        <div class="ms-Nav-compositeLink is-expanded ${isSelected? 'is-selected':''}">
             <!--{ (nestingLevel === 0 && link.links && link.links.length > 0 ?
           <button
             className='ms-Nav-chevronButton ms-Nav-chevronButton--link'

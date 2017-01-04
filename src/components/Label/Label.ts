@@ -1,5 +1,11 @@
-import {customElement, bindable} from 'aurelia-framework';
+import { bindable, customElement } from 'aurelia-framework';
 
-@customElement('office-label')
-export class Label {    
+@customElement('fabric-label')
+export class Label {
+    @bindable public required: boolean;
+    @bindable public disabled: boolean;
+
+    public constructor() {
+
+    }
 }

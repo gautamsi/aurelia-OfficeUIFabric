@@ -5,6 +5,10 @@ body {
   height: 100%;
 }
 
+code{
+  background-color: beige;
+}
+
 body {
   font-family: 'Segoe UI WestEuropean', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

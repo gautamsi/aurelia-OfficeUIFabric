@@ -10,7 +10,7 @@ var runSequence = require('run-sequence');
 var buildPath = require('../pathsBuild');
 
 
-var tsProjectSystem = ts.createProject('./src/documentation/tsconfig.json', {
+var tsProjectSystem = ts.createProject('./src/documentation/tsconfig._json', {
   typescript: require('typescript'),
   "declaration": true,
   target: 'es5',

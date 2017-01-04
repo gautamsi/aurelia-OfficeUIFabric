@@ -1,0 +1,54 @@
+<template>
+    <h1>Fabric Label</h1>
+    <h3>tag: &lt;fabric-label&gt;&lt;/fabric-label&gt;</h3>
+
+
+    <h2 id="variants">Variants</h2>
+    <h3 id="default">Default</h3>
+
+    <fabric-label disabled.bind="isDisabled"> Default Label</fabric-label>
+
+    <h3 id="primary">Required label <code>required="true"</code></h3>
+
+
+    <fabric-label required="true" disabled.bind="isDisabled">
+        A required label
+    </fabric-label>
+
+    <h3 id="compound">Disabled label <code>disabled="true"</code></h3>
+
+    <fabric-label disabled="true">
+        A disabled label
+    </fabric-label>
+
+    <br>
+    <input type="checkbox" checked.two-way="isDisabled" />
+    <!--<label> -->
+        check to disable labels (bug, can not use &lt;label&gt anywhere on the page with this fabric element)
+        <!--</label>-->
+
+    <h2>Attributes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>required</td>
+                <td><code>true</code>&nbsp; or &nbsp;<code>false</code></td>
+                <td>Whether or not associated field is required or not</td>
+            </tr>
+            <tr>
+                <td>disabled</code>
+                </td>
+                <td><code>true</code> or <code>false</code></td>
+                <td>enable or disable the button</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</template>

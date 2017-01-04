@@ -1,13 +1,19 @@
 <template bindable="router">
-    <fabric-nav>
-        <fabric-nav-group name="COMPONENTS">
-            <fabric-nav-link name="Breadcrumb" url="#/cmp"></fabric-nav-link>
-            <fabric-nav-link name="Button" url="#/cmp"></fabric-nav-link>
-            <fabric-nav-link name="Callout" url="#/cmp"></fabric-nav-link>
-            <fabric-nav-link name="CheckBox" url="#/cmp"></fabric-nav-link>
-        </fabric-nav-group>
-    </fabric-nav>
-    <!--<div class="SidebarSection ms-Nav-group is-expanded">
+    <require from="../util/ArrayFilter"></require>
+    <fabric-nav-link name="Home" url="#/" style="list-style:none"></fabric-nav-link>
+<fabric-nav>
+    <fabric-nav-group name="COMPONENTS" is-expanded="true">
+        <fabric-nav-link name.one-way="row.title || row.name" 
+            url.one-way="row.href" 
+            repeat.for="row of router.navigation | arrayFilter: 'settings': 'COMPONENTS'"
+            is-selected.one-way="row.isActive"></fabric-nav-link>
+        <fabric-nav-link name="Breadcrumb" url="#/components/Breadcrumb"></fabric-nav-link>
+        <fabric-nav-link name="Button" url="#/components/Button"></fabric-nav-link>
+        <fabric-nav-link name="Callout" url="#/components/Callout"></fabric-nav-link>
+        <fabric-nav-link name="CheckBox" url="#/components/CheckBox"></fabric-nav-link>
+    </fabric-nav-group>
+</fabric-nav>
+<!--<div class="SidebarSection ms-Nav-group is-expanded">
         <button class="ms-Nav-groupButton">
                     <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronDown"></i>
                     <span>

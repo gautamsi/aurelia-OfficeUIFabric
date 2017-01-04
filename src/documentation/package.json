@@ -26,6 +26,7 @@
     "e2e": "gulp serve e2e"
   },
   "devDependencies": {
+    "@types/aurelia-router":"*",
     "aurelia-bundler": "^0.4.0",
     "aurelia-tools": "^0.2.4",
     "browser-sync": "^2.13.0",

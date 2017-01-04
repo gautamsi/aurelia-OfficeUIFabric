@@ -26,6 +26,9 @@ export class NavGroup implements INavLink {
     public isExpanded?: boolean;
 
     @bindable
+    public isSelected?: boolean;
+
+    @bindable
     public title?: string;
 
     [propertyName: string]: any;

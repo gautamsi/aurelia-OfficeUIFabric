@@ -1,33 +1,35 @@
-import {customElement, bindable, inject} from 'aurelia-framework';
+import { customElement, bindable, inject } from 'aurelia-framework';
 
 @inject(Element)
-@customElement('office-button')
+@customElement('fabric-button')
 export class Button {
-    @bindable type: ButtonType = ButtonType.basic;
-    @bindable icon:string = "plus";
-    @bindable label:string;
-    @bindable description:string;
-    
-    buttonTypeCss:string = '';
-    
-    constructor(private element:Element){
-        
+    @bindable public type: ButtonType = ButtonType.basic;
+    @bindable public icon: string = "plus";
+    @bindable public label: string;
+    @bindable public description: string;
+    @bindable public disabled: boolean;
+
+    public buttonTypeCss: string = '';
+
+    constructor(private element: Element) {
+
     }
-    typeChanged(newValue:string){
-        this.buttonTypeCss = newValue ==='' || newValue === ButtonType[ButtonType.basic] ? '' : "ms-Button--" + newValue;           
-    }
-    
-    clickHandler(){
-        //this.element.dispatchEvent(new Event('click'));
-        console.log("event dispatched");
-    }
+
+    // public clickHandler() {
+    //     // this.element.dispatchEvent(new Event('click'));
+    //     console.log("event dispatched");
+    // }
+
+    // private typeChanged(newValue: string) {
+    //     this.buttonTypeCss = newValue === '' || newValue === 'basic' || newValue === 'default' ? '' : "ms-Button--" + newValue;
+    // }
 }
 
 export enum ButtonType {
+    default,
     basic,
     primary,
     command,
     compound,
     hero
-    
 }

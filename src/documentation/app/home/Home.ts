@@ -1,6 +1,8 @@
-//import {computedFrom} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 
-export class Welcome {
+@inject(Router)
+export class Home {
     heading = 'Welcome to the Aurelia Navigation App!';
     firstName = 'John';
     lastName = 'Doe';
@@ -36,6 +38,14 @@ export class Welcome {
         return `${this.firstName} ${this.lastName}`;
     }
 
+    router:Router = null;
+    constructor(router:Router){
+        this.router = router;
+    }
+
+    attached() {
+        var x = this.router;
+    }
     submit() {
         this.previousValue = this.fullName;
         alert(`Welcome, ${this.fullName}!`);

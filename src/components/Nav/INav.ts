@@ -59,6 +59,10 @@ export interface INavLink {
      */
     isExpanded?: boolean;
     /**
+     * Whether or not the link is in an expanded state
+     */
+    isSelected?: boolean;
+    /**
      * title for tooltip or description
      */
     title?: string;

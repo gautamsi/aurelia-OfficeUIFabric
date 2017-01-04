@@ -1,0 +1,85 @@
+<template>
+    <h1>Fabric Button</h1>
+    <h3>tag: &lt;fabric-button&gt;&lt;/fabric-button&gt;</h3>
+
+
+    <h2 id="variants">Variants</h2>
+    <h3 id="default">Default <code>type="default" || "basic" || ""</code></h3>
+
+    <fabric-button type="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" click.delegate="log('Clicked' + basic.type)">
+    </fabric-button>
+
+    <h3 id="primary">Primary <code>type="primary"</code></h3>
+
+    <p>Where multiple buttons are presented together, this is the default action when submitting the form.</p>
+
+    <fabric-button type="primary" label="Create Account" disabled.bind="isDisabled" ref="primary" click.delegate="log('Clicked' + primary.type)">
+    </fabric-button>
+
+    <h3 id="compound">Compound <code>type="compound"</code></h3>
+    <p>Provides a second line of text to explain the action the button takes.</p>
+
+    <fabric-button type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+        disabled.bind="isDisabled" ref="compound" click.delegate="log('Clicked' + compound.type)">
+    </fabric-button>
+
+    <h3 id="hero">Hero <code>type="hero"</code>> </h3>
+    <p>Similar to the Command variant, but with a larger size to draw attention to important actions.</p>
+
+    <fabric-button type="hero" icon="Add" label="Create Account" disabled.bind="isDisabled" ref="hero" click.delegate="log('Clicked' + $this.type)">
+    </fabric-button>
+    <br>
+    <label for=""> <input type="checkbox" checked.two-way="isDisabled"> check to disable buttons</label>
+
+    <h2>Attributes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>type</td>
+                <td><code>''</code>(empty) or <code>default</code> or <code>basic</code><br>
+                    <code>primary</code><br>
+                    <code>compound</code><br>
+                    <code>hero</code></td>
+                <td>
+                    <code>primary</code> - default fabric UI button<br>
+                    <code>compound</code> - Where multiple buttons are presented together, this is the default action when
+                    submitting the form.<br>
+                    <code>hero</code> - Provides a second line of text to explain the action the button takes. Similar to
+                    the Command variant, but with a larger size to draw attention to important actions.
+                </td>
+            </tr>
+            <tr>
+                <td>icon</td>
+                <td>One of icon type in Fabric UI icons, only the part after <code>.ms-Icon--</code> e.g. <code>plus</code> for
+                    <code>.ms-Icon--plus</code> </td>
+                <td>adds icon when using <code>hero</code> type button</td>
+            </tr>
+            <tr>
+                <td>label</code>
+                </td>
+                <td>text vaue</td>
+                <td>displays as text on the button</td>
+            </tr>
+            <tr>
+                <td>description</code>
+                </td>
+                <td>text description in <code>compound</code> type button</td>
+                <td>secondary text on <code>compound</code> type button</td>
+            </tr>
+            <tr>
+                <td>disabled</code>
+                </td>
+                <td><code>true</code> or <code>false</code></td>
+                <td>enable or disable the button</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</template>
