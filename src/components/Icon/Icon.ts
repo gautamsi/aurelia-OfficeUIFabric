@@ -1,19 +1,18 @@
-import {customElement, bindable} from 'aurelia-framework';
+import { customElement, bindable } from 'aurelia-framework';
 
 
-@customElement('office-icon')
+@customElement('fabric-icon')
 export class OfficeListItemAction {
-    
-    @bindable icon:string = "checkboxEmpty";    
-    @bindable click:Function;
-    @bindable type:string = "default";
-    
-    constructor(){
-        
+
+    @bindable icon: string = "";
+    @bindable click: Function;
+    @bindable type: string = "default";
+
+    constructor() {
     }
-    clickHandler(){
-        if(this.click){
-           this.click(); 
+    clickHandler() {
+        if (this.click) {
+            this.click();
         }
     }
 }

@@ -1,0 +1,8 @@
+<template>
+    <div class="ms-CheckBox">
+        <input tabindex="-1" type="checkbox" class="ms-CheckBox-input" disabled.bind="disabled" checked.bind="checked">
+        <label class="ms-CheckBox-field ${disabled? 'is-disabled':''}" tabindex="0" aria-checked="${checked?'true':'false'}">
+            <span class="ms-Label"><slot>${label}</slot></span>
+        </label>
+    </div>
+</template>

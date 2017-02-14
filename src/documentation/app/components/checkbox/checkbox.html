@@ -1,0 +1,105 @@
+<template>
+    <h1>Fabric CheckBox</h1>
+    <h3>tag: &lt;fabric-checkbox&gt;&lt;/fabric-checkbox&gt;</h3>
+
+    <style scoped="scoped">
+        .impred {
+            border-style: double;
+            border-color: darkmagenta;
+        }
+        .opacity {
+            opacity: 0.7;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
+
+<h2 id="variants">Variants</h2>
+<h3 id="default">Default <code>type="default" || "basic" || ""</code></h3>
+
+<fabric-checkbox type="basic" label="Create Account" checked="true" disabled.bind="isDisabled" checked.two-way="checked">
+</fabric-checkbox>
+<br>
+<label> checked:${checked}</label>
+<p>
+    Default with <code>dropdown-icon="ChevronDown" btn-class="custom class name"</code>
+</p>
+&nbsp;
+<fabric-checkbox type="basic" checked="false"  disabled.bind="isDisabled" icon="minus" dropdown-icon="ChevronDown" btn-class="impred">
+    Create Account
+</fabric-checkbox>
+
+<h3 id="primary">Primary <code>type="primary"</code></h3>
+
+<p>Where multiple buttons are presented together, this is the default action when submitting the form.</p>
+
+<fabric-checkbox type="primary" label="Create Account" disabled.bind="isDisabled" ref="primary" click.delegate="log($event, 'Clicked' + primary.type)">
+</fabric-checkbox>
+<p>
+    Primary with <code>dropdown-icon="Package"</code>
+</p>
+<fabric-checkbox type="primary" label="Create Account" disabled.bind="isDisabled" icon="minus" dropdown-icon="Package">
+</fabric-checkbox>
+
+<h3 id="compound">Compound <code>type="compound"</code></h3>
+<p>Provides a second line of text to explain the action the button takes.</p>
+
+<fabric-checkbox type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+    disabled.bind="isDisabled" ref="compound" click.delegate="log('Clicked' + compound.type)">
+</fabric-checkbox>
+<p>
+    Compound with <code>dropdown-icon="History"</code>
+</p>
+<fabric-checkbox type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+    dropdown-icon="History" disabled.bind="isDisabled" ref="compound">
+</fabric-checkbox>
+
+<h3 id="hero">Hero <code>type="hero"</code>> </h3>
+<p>Similar to the Command variant, but with a larger size to draw attention to important actions.</p>
+
+<fabric-checkbox type="hero" icon="Add" label="Create Account" disabled.bind="isDisabled" ref="hero">
+</fabric-checkbox>
+<p>
+    Hero type with <code>icon="Attach"" dropdown-icon="PhotoCollection"</code>
+</p>
+<fabric-checkbox type="hero" icon="Attach" label="Create Account" disabled.bind="isDisabled" ref="hero" dropdown-icon="PhotoCollection">
+</fabric-checkbox>
+
+<br>
+<fabric-checkbox checked.bind="isDisabled">
+        check to disable above checkboxes
+</fabric-checkbox>
+
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>label</code>
+            </td>
+            <td>text vaue</td>
+            <td>displays as text on the button, you can also use <code>&lt;fabric-checkbox&gt;some label&lt;/fabric-checkbox&gt;</code></td>
+        </tr>
+        <tr>
+            <td>checked</code>
+            </td>
+            <td><code>true</code> or <code>false</code></td>
+            <td>check or uncheck the underlying checkbox (two-way bind)</td>
+        </tr>
+        <tr>
+            <td>disabled</code>
+            </td>
+            <td><code>true</code> or <code>false</code></td>
+            <td>enable or disable the button</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>

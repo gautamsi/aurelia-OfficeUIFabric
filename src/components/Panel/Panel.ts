@@ -1,79 +1,54 @@
-import {customElement, bindable, inject } from 'aurelia-framework';
+import { bindable, bindingMode, customElement, inject } from 'aurelia-framework';
+import { Panel as FabricPanel } from "./msPanel";
+import { toBool } from "../common/convert";
 
 @inject(Element)
-@customElement('office-panel')
+@customElement('fabric-panel')
 export class Panel {
     @bindable headerText: string = null;
-    @bindable tooltip: string = null;
-    @bindable size: string = PanelSize[PanelSize.small];
-    @bindable open: boolean = false;
-
-    $closeOverlay: Element;
-    $panelMain: Element;
-    closing: boolean = false;
-    opening: boolean = false;
+    @bindable headerCss: string = null;
+    @bindable size: PanelSize = "sm";
+    @bindable direction: PanelDirection = "right";
+    @bindable({ defaultBindingMode: bindingMode.twoWay }) open: boolean = false;
+    @bindable onClose: Function;
+    $open: boolean = false;
     isOpen: boolean = false;
+    private fabricPanel: FabricPanel;
 
-    openPanel() {
-        // Display Panel first, to allow animations
-        this.isOpen = true; //$panel.addClass("is-open");
-
-        // Add animation class
-        this.opening = true; //$panel.addClass("ms-Panel-animateIn");
+    constructor(private element: Element) {
     }
 
     attached() {
-        Panel.prefixedEvent(this.$panelMain, 'AnimationEnd', (event) => {
-            if (event.animationName.indexOf('Out') > -1) {
+        //this.fabricPanel = new FabricPanel(this.element);
+    }
 
-                // Hide and Prevent ms-Panel-main from being interactive
-                //$panel.removeClass('is-open');
-                this.isOpen = false; 
-
-                // Remove animating classes for the next time we open panel
-                //$panel.removeClass('ms-Panel-animateIn ms-Panel-animateOut');
-                this.closing = false;
-                this.opening = false;
-                this.open = false;
+    closePanel() {
+        // this.closing = true;
+        if (this.fabricPanel) {
+            //this.fabricPanel.dismiss(this.onClose);
+            this.fabricPanel = null;
+        }
+        this.open = this.$open = false;
+    }
+    openChanged(value: boolean) {
+        // console.log(value);
+        this.$open = toBool(value);
+        if (this.$open) {
+            if (this.fabricPanel) {
+                try {
+                    this.fabricPanel.dismiss();
+                } catch (e) { }
+                this.fabricPanel = null;
             }
-        });
-    }
-
-    closeHandler() {
-        this.closing = true;
-    }
-    openChanged(newValue: boolean) {
-        if (newValue == true) {
-            this.openPanel()
-        }
-    }
-    static pfx: string[] = ["webkit", "moz", "MS", "o", ""];
-    // Prefix function
-    static prefixedEvent(element: Element, type: string, callback: (event: AnimationEvent) => void) {
-        for (var p = 0; p < this.pfx.length; p++) {
-            if (!this.pfx[p]) type = type.toLowerCase();
-            element.addEventListener(this.pfx[p] + type, callback, false);
+            this.fabricPanel = new FabricPanel(this.element, this.closePanel.bind(this), this.direction);
+        } else {
+            if (this.fabricPanel) {
+                this.fabricPanel.dismiss(); //this.onClose);
+                //this.fabricPanel = null;
+            }
         }
     }
 }
 
-export enum PanelSize {
-    small,
-    medium,
-    large,
-    extraLarge
-}
-export enum PersonaShape {
-    square,
-    round,
-}
-export enum PersonaPresence {
-    none,
-    available,
-    away,
-    blocked,
-    busy,
-    dnd,
-    offline,
-}
-
+export type PanelSize = "sm" | "md" | "lg" | "xl" | "xxl";
+export type PanelDirection = "left" | "right";

@@ -1,19 +1,15 @@
 <template>
-    <div class="ms-Panel ms-Panel--${size} ${isOpen ? 'is-open' : ''} ${closing ? 'ms-Panel-animateOut' : ''} ${opening ? 'ms-Panel-animateIn' : ''}">
-        <div class="ms-Overlay ms-Overlay--dark ms-PanelAction-close" ref="$closeOverlay" click.delegate="closing = true"></div>
-        <div class="ms-Panel-main"
-            ref="$panelMain">
-            <div class="ms-Panel-commands">
-                <content select="office-commandbar"></content>
+    <div class="ms-Panel ms-Panel--${size} ${$open ? 'is-open' : ''} ${direction==='left' ? 'ms-Panel--left' : ''}"> <!--{closing ? 'ms-Panel-animateOut' : ''} ${opening ? 'ms-Panel-animateIn' : ''}-->
+        <button class="ms-Panel-closeButton ms-PanelAction-close"> <!-- ms-PanelAction-close not used as this one triggers double close event. click.delegate="closePanel()" is also removed to let Panel fire this, see msPanel constructor changes -->
+                <i class="ms-Panel-closeIcon ms-Icon ms-Icon--Cancel"></i>
+            </button>
+        <div class="ms-Panel-contentInner">
+            <p class="ms-Panel-headerText ${headerCss}">${headerText}</p>
+            <div class="ms-Panel-content">
+                <span class="ms-font-m">
+                    <slot></slot>
+                </span>
             </div>
-            <div class="ms-Panel-contentInner">
-                <span class="ms-Panel-headerText">
-            ${headerText}                          
-          </span>
-                <p class="ms-font-m">
-                    <content select="office-panel-content"></content>
-                </p>
-            </div>
-        </div>
+        </div>        
     </div>
 </template>

@@ -17,16 +17,15 @@
 
     <h3 id="compound">Disabled label <code>disabled="true"</code></h3>
 
-    <fabric-label disabled="true">
+    <fabric-label disabled="true" for="chckname">
         A disabled label
-    </fabric-label>
-
+    </fabric-label>    
     <br>
-    <input type="checkbox" checked.two-way="isDisabled" />
-    <!--<label> -->
-        check to disable labels (bug, can not use &lt;label&gt anywhere on the page with this fabric element)
-        <!--</label>-->
-
+    <fabric-checkbox id="chckname" checked.bind="isDisabled">
+        check to disable labels
+    </fabric-checkbox>
+    <br>
+    
     <h2>Attributes</h2>
     <table>
         <thead>
