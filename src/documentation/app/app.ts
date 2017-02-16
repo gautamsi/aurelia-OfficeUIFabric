@@ -21,6 +21,7 @@ export class App {
       { route: 'Icon',            name: 'icon',         moduleId: 'components/icons/icons',           nav: true,  title: 'Icon',        settings: 'COMPONENTS' },
       { route: 'Label',           name: 'label',        moduleId: 'components/label/labels',          nav: true,  title: 'Label',       settings: 'COMPONENTS' },
       { route: 'Panel',           name: 'panel',        moduleId: 'components/panel/panel',           nav: true,  title: 'Panel',       settings: 'COMPONENTS' },
+      { route: 'Persona',         name: 'persona',      moduleId: 'components/persona/persona',       nav: true,  title: 'Persona',     settings: 'COMPONENTS' },
       { route: 'Progress',        name: 'progress',     moduleId: 'components/progress/progress',    nav: true,  title: 'Progress Indicator',  settings: 'COMPONENTS' },
       { route: 'components/*path',    name: 'route',        navigationStrategy: navStrat },
     ]);

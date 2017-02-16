@@ -1,7 +1,6 @@
 import { bindable, bindingMode, customElement, inject } from 'aurelia-framework';
 import { Overlay as FabricOverlay } from "./msOverlay";
-import { toBool } from "../common/convert";
-
+import { toBool } from "../../utilities/convert";
 
 @inject(Element)
 @customElement('fabric-overlay')

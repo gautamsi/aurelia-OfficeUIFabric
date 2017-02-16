@@ -1,6 +1,6 @@
 import { bindable, bindingMode, customElement, inject } from 'aurelia-framework';
 import { Panel as FabricPanel } from "./msPanel";
-import { toBool } from "../common/convert";
+import { toBool } from "../../utilities/convert";
 
 @inject(Element)
 @customElement('fabric-panel')

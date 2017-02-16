@@ -1,6 +1,6 @@
 import { customElement, bindable, inject } from 'aurelia-framework';
 import { ProgressIndicator as FabricProgress } from "./msProgressIndicator";
-import { toBool } from "../common/convert";
+import { toBool } from "../../utilities/convert";
 
 @inject(Element)
 @customElement('fabric-progress')

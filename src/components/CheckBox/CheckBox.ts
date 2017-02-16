@@ -1,6 +1,6 @@
 import { customElement, bindable, inject, bindingMode } from 'aurelia-framework';
 import { CheckBox as FabricCheckBox } from "./msCheckBox";
-import { toBool } from "../common/convert";
+import { toBool } from "../../utilities/convert";
 
 @inject(Element)
 @customElement('fabric-checkbox')
