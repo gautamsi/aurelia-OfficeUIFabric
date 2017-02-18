@@ -10,25 +10,22 @@ export class Persona {
     @bindable public actionIcon: string = null;
     @bindable public presenceIcon: string = null;
     @bindable public presence: PersonaPresence = "none";
-    @bindable public name: string = null;
-    @bindable public title: string = null;
-    @bindable public status: string = null;
-    @bindable public detail: string = null;
+    @bindable public primaryText: string = null;
+    @bindable public secondaryText: string = null;
+    @bindable public tertiaryText: string = null;
+    @bindable public optionalText: string = null;
     @bindable public image: string = null;
     @bindable public initials: string = null;
     @bindable public tooltip: string = null;
-    @bindable public varient: PersonaVarient = "reg";
+    @bindable public varient: PersonaVarient = "default";
     @bindable public darkText: boolean; // = false;
     @bindable public selectable: boolean; // = false;
 
-    @bindable public action: Function;
+    @bindable public actionClick: Function;
     @bindable public initialsColor: PersonaInitialsColor = "blue";
 
     private darkTextCss: string = "lightText";
     private showPresence: boolean = false;
-    private showTitle: boolean = false;
-    private showStatus: boolean = false;
-    private showDetail: boolean = false;
     private showImage: boolean = false;
     private selectableCss: string = null;
 
@@ -36,15 +33,12 @@ export class Persona {
     constructor(private element: Element) {
         this._persona = new OfficePersona(element);
     }
-    varientChanged(newValue: string) {
+    __varientChanged(newValue: string) {
         this.showImage = !isNullOrEmptyString(this.image) && newValue !== "tiny";
-        // this.showTitle = !(newValue === "tiny" || newValue === "xs");
-        // this.showStatus = newValue === "lg" || newValue === "xl";
-        // this.showDetail = newValue === "xl";
     }
 
     imageChanged(newValue: string) {
-        this.showImage = !isNullOrEmptyString(this.image) && newValue !== "tiny";
+        // this.showImage = !isNullOrEmptyString(this.image) && newValue !== "tiny";
     }
     presenceChanged(newValue: string) {
         this.showPresence = newValue && newValue !== "none";
@@ -57,12 +51,12 @@ export class Persona {
     }
 
     attached() {
-        this.showImage = !isNullOrEmptyString(this.image) && this.varient !== "tiny";
+        //this.showImage = !isNullOrEmptyString(this.image) && this.varient !== "tiny";
     }
 
-    public actionClick() {
-        if (this.action) {
-            this.action();
+    public actionIconClick() {
+        if (this.actionClick) {
+            this.actionClick({ persona: this });
         }
     }
 }
