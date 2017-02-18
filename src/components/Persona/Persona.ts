@@ -31,7 +31,7 @@ export class Persona {
 
     private _persona: OfficePersona;
     constructor(private element: Element) {
-        this._persona = new OfficePersona(element);
+
     }
     __varientChanged(newValue: string) {
         this.showImage = !isNullOrEmptyString(this.image) && newValue !== "tiny";
@@ -51,7 +51,7 @@ export class Persona {
     }
 
     attached() {
-        //this.showImage = !isNullOrEmptyString(this.image) && this.varient !== "tiny";
+        this._persona = new OfficePersona(this.element);
     }
 
     public actionIconClick() {

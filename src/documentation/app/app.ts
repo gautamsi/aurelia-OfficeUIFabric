@@ -23,6 +23,7 @@ export class App {
       { route: 'OrgChart',        name: 'orgchart',     moduleId: 'components/orgchart/orgchart',     nav: true,  title: 'OrgChart',    settings: 'COMPONENTS' },
       { route: 'Panel',           name: 'panel',        moduleId: 'components/panel/panel',           nav: true,  title: 'Panel',       settings: 'COMPONENTS' },
       { route: 'Persona',         name: 'persona',      moduleId: 'components/persona/persona',       nav: true,  title: 'Persona',     settings: 'COMPONENTS' },
+      { route: 'PersonaCard',     name: 'personacard',  moduleId: 'components/personacard/personacard', nav: true,  title: 'PersonaCard',     settings: 'COMPONENTS' },
       { route: 'Progress',        name: 'progress',     moduleId: 'components/progress/progress',    nav: true,  title: 'Progress Indicator',  settings: 'COMPONENTS' },
       { route: 'components/*path',    name: 'route',        navigationStrategy: navStrat },
     ]);

@@ -1,9 +1,17 @@
 import { IOrgChartGroup, IPersona } from '../../../../../src/components/OrgChart/OrgChart';
-
-export class orgchart {
+import { IPersonaCardPersona, IPersonaCardPersonalWorkStrings } from '../../../../../src/components/PersonaCard/PersonaCard';
+export class personacard {
 
     groups: IOrgChartGroup[] = [];
+    persona: IPersonaCardPersona;
+    emails: IPersonaCardPersonalWorkStrings;
+    phones: IPersonaCardPersonalWorkStrings;
     constructor() {
+        this.persona = { primaryText: "The Sales representative 3", secondaryText: "Sales Rep - West", presence: "dnd", image: this.src, tertiatyText: "In Meeting", optionalText: "Available after 4 PM" };
+
+        this.emails = { personal: "something@personal.com", work: "email@work.com" };
+        this.phones = { personal: "425 782 8734", work: "423 876 1234" };
+
         this.groups.push({
             personas: [
                 { primaryText: "The CEO", secondaryText: "CEO", presence: "away", image: this.src },
@@ -46,7 +54,6 @@ export class orgchart {
         console.log(persona);
         console.log("msg - " + msg);
     }
-
     name: string = "Alton Lafferty";
     title: string = "Accountant";
     status: string = "In Meeting";
@@ -58,14 +65,14 @@ export class orgchart {
     src: string = this.src1;
 
     shuffle(o: any, type: any) {
-        for (var j, x, i = o.types.length; i; j = Math.floor(Math.random() * i), x = o[type][--i], o[type].splice(i, 1, o[type][j]), o[type].splice(j, 1, x));
-        return o[type];
+        // for (var j, x, i = o.types.length; i; j = Math.floor(Math.random() * i), x = o[type][--i], o[type].splice(i, 1, o[type][j]), o[type].splice(j, 1, x));
+        // return o[type];
     }
 
     changebtn() {
-        //console.log("event received");
-        //this.selectable = !this.selectable;
-        //this.icon = this.icon === "person" ? "group" : "person";
+        // console.log("event received");
+        // this.selectable = !this.selectable;
+        // this.icon = this.icon === "person" ? "group" : "person";
         this.src = this.src === this.src1 ? this.src2 : (this.src === this.src2 ? null : this.src1);
 
         // 

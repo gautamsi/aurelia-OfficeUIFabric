@@ -1,3 +1,5 @@
+import { IOrgChartGroup, IPersona } from '../../../../../src/components/OrgChart/OrgChart';
+import { IPersonaCardPersona, IPersonaCardPersonalWorkStrings } from '../../../../../src/components/PersonaCard/PersonaCard';
 export class persona {
 
     openPanel: boolean = false;
@@ -22,7 +24,50 @@ export class persona {
     src2: string = 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMqaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjUtYzAyMSA3OS4xNTQ5MTEsIDIwMTMvMTAvMjktMTE6NDc6MTYgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Nzc4NTFCNUFDNjcwMTFFMzk3QzFERjExOUYyQjIyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Nzc4NTFCNUJDNjcwMTFFMzk3QzFERjExOUYyQjIyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3Nzg1MUI1OEM2NzAxMUUzOTdDMURGMTE5RjJCMjIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3Nzg1MUI1OUM2NzAxMUUzOTdDMURGMTE5RjJCMjIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEAAICAgICAgICAgIDAgICAwQDAgID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';
 
     src: string = this.src1;
+    groups: IOrgChartGroup[] = [];
+    persona: IPersonaCardPersona;
+    emails: IPersonaCardPersonalWorkStrings;
+    phones: IPersonaCardPersonalWorkStrings;
+    constructor() {
+        this.persona = { primaryText: "The Sales representative 3", secondaryText: "Sales Rep - West", presence: "dnd", image: this.src, tertiatyText: "In Meeting", optionalText: "Available after 4 PM" };
+        this.emails = { personal: "something@personal.com", work: "email@work.com" };
+        this.phones = { personal: "425 782 8734", work: "423 876 1234" };
 
+        this.groups.push({
+            personas: [
+                { primaryText: "The CEO", secondaryText: "CEO", presence: "away", image: this.src },
+                { primaryText: "The Vice President", secondaryText: "Vice President", presence: "busy", image: this.src },
+                { primaryText: "The General Manager", secondaryText: "General Manager - Sales", presence: "available", image: this.src },
+            ],
+        },
+            {
+                title: "Manager",
+                personas: [
+                    { primaryText: "The group Manager", secondaryText: "Group Manager - Sales", presence: "available", image: this.src },
+                ],
+            },
+            {
+                title: "Shares Same Manager",
+                personas: [
+                    { primaryText: "The Sales representative 1", secondaryText: "Sales Rep - North", presence: "away", image: this.src },
+                    { primaryText: "The Sales representative 2", secondaryText: "Sales Rep - South", presence: "available", image: this.src },
+                    { primaryText: "The Sales representative 3", secondaryText: "Sales Rep - West", presence: "dnd", image: this.src },
+                ],
+            },
+            {
+                title: "Direct Reports",
+                personas: [
+                    { primaryText: "Sales support 1", secondaryText: "support - sales", presence: "away", initials: "SS1", initialsColor: "green" },
+                    { primaryText: "Sales support 2", secondaryText: "support - sales", presence: "available", initials: "SS2", initialsColor: "blue" },
+                    { primaryText: "Sales support 3", secondaryText: "support - sales", presence: "available", initials: "SS3", initialsColor: "purple" },
+                    { primaryText: "Marketting support 1", secondaryText: "Support - mkt", presence: "available", image: this.src },
+                    { primaryText: "Delivery support 1", secondaryText: "Support - delivery", presence: "dnd", image: this.src },
+                    { primaryText: "Sales support 1", secondaryText: "support - sales", presence: "away", image: this.src },
+                    { primaryText: "Marketting support 1", secondaryText: "Support - mkt", presence: "available", image: this.src },
+                    { primaryText: "Delivery support 1", secondaryText: "Support - delivery", presence: "dnd", image: this.src },
+                ],
+            });
+    }
     public log(msg: string) {
         console.log(msg);
     }

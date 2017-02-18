@@ -19,13 +19,10 @@ export interface IOrgChartGroup {
 
 export interface IPersona {
     primaryText: string;
-
-    image?: string;
-
-    initials?: string;
-
-    initialsColor?: PersonaInitialsColor;
     secondaryText: string;
+    image?: string;
+    initials?: string;
+    initialsColor?: PersonaInitialsColor;
     presence: PersonaPresence;
     presenceIcon?: string;
 }

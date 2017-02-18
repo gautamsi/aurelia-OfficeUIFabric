@@ -115,10 +115,13 @@
 
     <div>
         <fabric-persona tooltip="tooltip text" image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+            <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
         <fabric-persona tooltip="tooltip text" image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+            <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>        
         </fabric-persona>
         <fabric-persona tooltip="tooltip text" image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+            <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
     </div>
 
@@ -227,5 +230,8 @@
             </tr>
         </tbody>
     </table>
-            <br>
+    <h3>Use with Fabric Persona Card</h3>
+    you can have child element as &lt;fabric-persona&gt;&lt;fabric-persona-card&gt;&lt;/fabric-persona-card&gt;&lt;/fabric-persona&gt; when clicked, it will popup the persona card for detailed view. On this page, click on the Facepile photos to see in action. 
+    <br>
+    <br>
 </template>

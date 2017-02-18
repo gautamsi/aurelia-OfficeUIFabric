@@ -28,7 +28,8 @@ export class Persona {
     this._persona = container;
     // If Persona Card and Contextual host exist continue
     // this._contextualHost = this._persona.querySelector(CONTEXTUAL_HOST_CLASS);
-    this._personaCard = this._persona.querySelector(".ms-PersonaCard");
+    // this._personaCard = this._persona.querySelector(".ms-PersonaCard");
+    this._personaCard = this._persona.querySelector("fabric-persona-card");
 
     if (this._personaCard) {
       this._assignEvents();
@@ -38,7 +39,7 @@ export class Persona {
   }
 
   private _createPersonaCard() {
-    this._personaCardInstance = new PersonaCard(this._personaCard);
+    // this._personaCardInstance = new PersonaCard(this._personaCard);
   }
 
   private _createContextualHostInstance(): void {

@@ -29,6 +29,7 @@ export function configure(config: FrameworkConfiguration) {
     "./components/NavGroup/NavGroup",
     "./components/NavLink/NavLink",
     "./components/Persona/Persona",
+    "./components/PersonaCard/PersonaCard",
     "./components/Overlay/Overlay",
     "./components/Label/FabricLabel",
     "./components/List/List",
