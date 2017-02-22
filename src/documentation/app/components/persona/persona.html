@@ -3,50 +3,50 @@
     <h1>Fabric Persona</h1>
     <h3>tag: &lt;fabric-persona&gt;&lt;/fabric-persona&gt;</h3>
 
-    <h2 id="variants">Varients</h2>
+    <h2 id="variants">variants</h2>
     <h3>Circle (default)</h3>
     Six sizes are available: tiny, extraSmall, small, default, large, and extraLarge
 
     <br>
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="tiny" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="tiny" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="xs" presence="available" presence-icon="SkypeCheck" primary-text.bind="name" 
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="xs" presence="available" presence-icon="SkypeCheck" primary-text.bind="name" 
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="sm" presence="available" presence-icon="SkypeCheck"primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="sm" presence="available" presence-icon="SkypeCheck"primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="lg" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="lg" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="xl" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="xl" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>  
 
     <div>
     <fabric-button type="basic" icon="refresh" click.call="changebtn()"> suffle</fabric-button> 
-    <fabric-label>Current varient: ${varient}</fabric-label>
+    <fabric-label>Current variant: ${variant}</fabric-label>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient.bind="varient" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant.bind="variant" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" action-icon="AddFriend" action-click.call="actionClick(persona)">
     </fabric-persona>
-    <fabric-persona tooltip="tooltip text" initials="AL" varient.bind="varient" initials-color="blue" presence="available" presence-icon="SkypeCheck"
+    <fabric-persona tooltip="tooltip text" initials="AL" variant.bind="variant" initials-color="blue" presence="available" presence-icon="SkypeCheck"
         primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" action-icon="Clear" action-click.call="actionClick(persona)">
     </fabric-persona>
 
@@ -66,47 +66,47 @@
     <p>A persona can have one of seven presences: available, away, blocked, busy, do not disturb, and offline.</p>
            
     <br>
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="available" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="available" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" initials="AL" initials-color="purple">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="away" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="away" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="blocked" primary-text.bind="name"
-        secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
-    </fabric-persona>
-    <br>
-
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="busy" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="blocked" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="dnd" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="busy" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
-    <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" presence="offline" primary-text.bind="name"
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="dnd" primary-text.bind="name"
+        secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
+    </fabric-persona>
+    <br>
+
+    <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" presence="offline" primary-text.bind="name"
         secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
     </fabric-persona>
     <br>
 
     <h3>Token</h3>
     <div>
-        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="Refresh" varient="token" presence="busy" primary-text.bind="name"
+        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="Refresh" variant="token" presence="busy" primary-text.bind="name"
             secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" action-click.call="actionClick(persona, 'first')">
         </fabric-persona>
-        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="DRM" varient="token" dark-text.bind="false" presence="available"
+        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="DRM" variant="token" dark-text.bind="false" presence="available"
             presence-icon="SkypeCheck" primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" action-click.call="actionClick(persona, 'second')">
         </fabric-persona>
-        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="ChevronDownSmall" varient="token" dark-text.bind="false" presence="away"
+        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="ChevronDownSmall" variant="token" dark-text.bind="false" presence="away"
             presence-icon="AADLogo" primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" action-click.call="actionClick(persona, 'third')">
         </fabric-persona>
-        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="Cancel" varient="token" dark-text.bind="false" presence="offline"
+        <fabric-persona tooltip="tooltip text" image.bind="src" action-icon="Cancel" variant="token" dark-text.bind="false" presence="offline"
             primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" action-click.call="actionClick(persona, 'fourth')">
         </fabric-persona>
     </div>
@@ -114,13 +114,13 @@
     <h3>FacePile</h3>
 
     <div>
-        <fabric-persona tooltip="tooltip text" image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+        <fabric-persona tooltip="tooltip text" image.bind="src" variant="facePile" primary-text.bind="name" secondary-text.bind="title">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
-        <fabric-persona tooltip="tooltip text" image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+        <fabric-persona tooltip="tooltip text" image.bind="src" variant="facePile" primary-text.bind="name" secondary-text.bind="title">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>        
         </fabric-persona>
-        <fabric-persona tooltip="tooltip text" image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+        <fabric-persona tooltip="tooltip text" image.bind="src" variant="facePile" primary-text.bind="name" secondary-text.bind="title">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
     </div>
@@ -129,14 +129,14 @@
     
 
             <div>
-                <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" dark-text.bind="false" presence="available" presence-icon="Microphone"
+                <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" dark-text.bind="false" presence="available" presence-icon="Microphone"
                     primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
                 </fabric-persona>
                 <br>
-                <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" dark-text.bind="false" presence="busy" presence-icon="RadioBtnOn"
+                <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" dark-text.bind="false" presence="busy" presence-icon="RadioBtnOn"
                     primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
                 </fabric-persona>
-                <fabric-persona tooltip="tooltip text" image.bind="src" varient="default" dark-text.bind="false" presence="away" presence-icon="OneDrive"
+                <fabric-persona tooltip="tooltip text" image.bind="src" variant="default" dark-text.bind="false" presence="away" presence-icon="OneDrive"
                     primary-text.bind="name" secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail">
                 </fabric-persona>
             </div>
@@ -153,9 +153,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>varient</td>
-                <td>PersonaVarient type value in string</td>
-                <td><code>type PersonaVarient = "tiny" | "xs" | "sm" | "default" | "lg" | "xl" | "facePile" | "token";</code></td>
+                <td>variant</td>
+                <td>Personavariant type value in string</td>
+                <td><code>type Personavariant = "tiny" | "xs" | "sm" | "default" | "lg" | "xl" | "facePile" | "token";</code></td>
             </tr>
             <tr>
                 <td>presence</td>
@@ -219,12 +219,12 @@
             <tr>
                 <td>action-icon</td>
                 <td>string value</td>
-                <td>only applicable to <code>token</code> varient. see possible values on Icons page</td>
+                <td>only applicable to <code>token</code> variant. see possible values on Icons page</td>
             </tr>
             <tr>
                 <td>action-click</code>
                 </td>
-                <td>Function call when the action-icon is clicked in token varient</td>
+                <td>Function call when the action-icon is clicked in token variant</td>
                 <td> use <code>action-click.call="functionName()"</code> to trigger
                 </td>
             </tr>

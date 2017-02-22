@@ -1,18 +1,18 @@
-import {customElement, bindable} from 'aurelia-framework';
+import { customElement, bindable } from 'aurelia-framework';
 
 
-@customElement('office-listitem-action')
-export class OfficeListItemAction {
-    
-    @bindable icon:string = "person";    
-    @bindable click:Function;
+@customElement('fabric-list-item-action')
+export class ListItemAction {
 
-    constructor(){
-        
+    @bindable icon: string = "person";
+    @bindable customCss: string = '';
+    @bindable click: Function;
+    constructor() {
+
     }
-    clickHandler(){
-        if(this.click){
-           this.click(); 
+    clickHandler() {
+        if (this.click) {
+            this.click();
         }
     }
 }

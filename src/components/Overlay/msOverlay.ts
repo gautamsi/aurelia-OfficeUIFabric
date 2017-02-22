@@ -3,7 +3,7 @@
   export class Overlay {
     public overlayElement: HTMLElement;
 
-    constructor(overlayElement?: HTMLElement) {
+    constructor(overlayElement?: HTMLElement, private hideCallback?: Function) {
       if (overlayElement) {
         this.overlayElement = overlayElement;
       } else {
@@ -26,5 +26,8 @@
     public hide(): void {
       this.overlayElement.classList.remove("is-visible");
       document.body.classList.remove("ms-u-overflowHidden");
+      if (this.hideCallback) {
+        this.hideCallback();
+      }
     }
   }

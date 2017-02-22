@@ -5,23 +5,30 @@ import { toBool } from "../../utilities/convert";
 @inject(Element)
 @customElement('fabric-overlay')
 export class Overlay {
-    @bindable type: OverlayType = "default";
-    @bindable({ defaultBindingMode: bindingMode.twoWay }) show: boolean = false;
+    @bindable variant: OverlayVariant = "default";
+    @bindable({ defaultBindingMode: bindingMode.twoWay }) isOpen: boolean = false;
     private overlay: FabricOverlay;
-
-    constructor(private element: Element) {
+    private overlayElement: HTMLElement;
+    constructor() {
     }
 
     attached() {
-        this.overlay = new FabricOverlay(<HTMLElement>this.element);
+        this.overlay = new FabricOverlay(this.overlayElement, () => { this.isOpen = false; });
     }
-
-    showChanged(value: boolean) {
-        this.show = toBool(value);
-        if (this.show && this.overlay) {
+    detached() {
+        if (this.overlay) {
+            try {
+                this.overlay.remove();
+            } catch (error) {
+            }
+        }
+    }
+    isOpenChanged(value: boolean) {
+        this.isOpen = toBool(value);
+        if (this.isOpen && this.overlay) {
             this.overlay.show();
         }
     }
 }
 
-export type OverlayType = "default" | "none" | "dark";
+export type OverlayVariant = "default" | "none" | "dark";

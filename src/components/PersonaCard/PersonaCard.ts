@@ -1,5 +1,5 @@
 import { customElement, bindable, inject } from 'aurelia-framework';
-import { PersonaCard as OfficePersonaCard } from './msPersonaCard';
+import { PersonaCard as FabricPersonaCard } from './msPersonaCard';
 import { IOrgChartGroup, IPersona } from '../OrgChart/OrgChart';
 
 @inject(Element)
@@ -12,13 +12,13 @@ export class PersonaCard implements IPersonaCard {
     @bindable phones: IPersonaCardPersonalWorkStrings;
     @bindable orgChartPersonaClick: Function;
 
-    _persona: OfficePersonaCard;
+    _persona: FabricPersonaCard;
     constructor(private element: Element) {
 
     }
 
     attached() {
-        this._persona = new OfficePersonaCard(this.element);
+        this._persona = new FabricPersonaCard(this.element);
     }
     personaClick(persona: IPersona) {
         if (this.orgChartPersonaClick) {

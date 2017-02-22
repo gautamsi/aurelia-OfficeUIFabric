@@ -1,21 +1,22 @@
-import {customElement, bindable, inject} from 'aurelia-framework';
-import * as Fabric from './SpinnerComponent';
+import { customElement, bindable, inject } from 'aurelia-framework';
+import { Spinner as FabricSpinner } from './msSpinner';
 
-//@inject(Element)
-@customElement('office-spinner')
+@inject(Element)
+@customElement('fabric-spinner')
 export class Spinner {
-    @bindable text:string;
-    @bindable showText:boolean = false;
-    @bindable size:boolean = false;
-    
-    defaultText:string = "Loading...";
-    $spinner:Element;
-    constructor()
-    {                
+    @bindable label: string;
+    @bindable displayLabel: boolean = false;
+    @bindable size: string = "default";
+
+    defaultLabel: string = "Loading...";
+
+    spinnerElement: Element;
+    _spinner: FabricSpinner;
+    constructor(private element: Element) {
     }
-    attached(){
-        var spinned = Fabric.Spinner(this.$spinner);
-        this.text = this.text || this.defaultText;
+    attached() {
+        this.label = this.label || this.defaultLabel;
+        this._spinner = new FabricSpinner(<HTMLElement>this.spinnerElement);
     }
 }
 

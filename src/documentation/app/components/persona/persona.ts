@@ -10,9 +10,9 @@ export class persona {
     total: number = 100;
     progress: number = 20;
 
-    varient: string = "default";
+    variant: string = "default";
 
-    varients: string[] = ["tiny", "xs", "sm", "default", "lg", "xl", "facePile", "token"];
+    variants: string[] = ["tiny", "xs", "sm", "default", "lg", "xl", "facePile", "token"];
 
     selectable: boolean = false;
     name: string = "Alton Lafferty";
@@ -94,10 +94,10 @@ export class persona {
         // this.icon = this.icon === "person" ? "group" : "person";
         this.src = this.src === this.src1 ? this.src2 : this.src1;
 
-        let x = this.varients.indexOf(this.varient);
+        let x = this.variants.indexOf(this.variant);
         x++;
-        if (x > this.varients.length) { x = 0; }
-        this.varient = this.varients[x];
+        if (x > this.variants.length) { x = 0; }
+        this.variant = this.variants[x];
         // 
         //         this.type = this.types[this.types.indexOf(this.type) <= this.types.length ? this.types.indexOf(this.type) + 1 : 0];
         //         this.label = this.labels[this.labels.indexOf(this.label) <= this.labels.length ? this.labels.indexOf(this.label) + 1 : 0];

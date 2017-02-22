@@ -5,15 +5,16 @@
 
     <h2 id="variants">Example</h2>
     <h3>Sizes</h3>
-    <fabric-button ref="btn5" type="command" label="Open Panel - default" icon="home" click.call="open('sm')"></fabric-button>
-    <br>
-    <fabric-button ref="btn5" type="command" label="Open Panel - medium" icon="home" click.call="open('md')"></fabric-button>
-    <br>
-    <fabric-button ref="btn5" type="command" label="Open Panel - large" icon="home" click.call="open('lg')"></fabric-button>
-    <br>
-    <fabric-button ref="btn5" type="command" label="Open Panel - xl" icon="home" click.call="open('xl')"></fabric-button>
-    <br>
-    <fabric-button ref="btn5" type="command" label="Open Panel - xxl" icon="home" click.call="open('xxl')"></fabric-button>
+    <h4>Default size</h4>    
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('sm')"></fabric-button>
+    <h4>Medium size</h4>
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('md')"></fabric-button>
+    <h4>Large size</h4>
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('lg')"></fabric-button>
+    <h4>Extra large size</h4>    
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('xl')"></fabric-button>
+    <h4>Extra Extra large size</h4> 
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('xxl')"></fabric-button>
     <br>
 
     <h3>Directions</h3>
@@ -23,7 +24,7 @@
 
     <fabric-button ref="btn5" type="command" label="change direction" icon="home" click.call="toggledirection()"></fabric-button>
 
-    <fabric-panel header-text="Button Varients" open.bind="openPanel" size.bind="size" direction.bind="direction">
+    <fabric-panel header-text="Button variants" open.bind="openPanel" size.bind="size" direction.bind="direction">
 
         <!--<fabric-searchbox></fabric-searchbox>-->
         <!--<fabric-searchbox repeat.for="icon of listicons" " search-button.bind="true " search.delegate="listiconclick(icon, $event) "></fabric-searchbox>-->

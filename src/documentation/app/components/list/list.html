@@ -1,0 +1,177 @@
+<template>
+    <h1>Fabric List &amp; List Item</h1>
+    <h3>tag: &lt;fabric-list&gt;&lt;fabric-list-item&gt;&lt;fabric-list-item-action&gt;&lt;/fabric-list-item-action&gt;&lt;/fabric-list-item&gt;&lt;/fabric-list&gt;</h3>
+
+    <h2 id="variants">Variants</h2>
+    <h3 id="default">Default List</code>
+    </h3>
+
+    <fabric-list type="list">
+        <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false"  is-unseen.bind="true" is-unread.bind="true">
+            <fabric-list-item-action repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+        </fabric-list-item>
+        <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false" en.bind="false" is-unread.bind="true">
+            <fabric-list-item-action repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+        </fabric-list-item>
+        <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false"  is-unseen.bind="false" is-unread.bind="false">
+            <fabric-list-item-action repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+        </fabric-list-item>
+        <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="true" is-selected.bind="false"  is-unseen.bind="false" is-unread.bind="false">
+            <fabric-list-item-action repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+        </fabric-list-item>        
+    </fabric-list>
+    <br>
+
+    <h2>List Item variants</h2>
+    
+    <h3>Default List Item</h3>
+    <fabric-list>
+        <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+            meta-text="2:42p" selectable.bind="selectable" is-selected.bind="selectable && selected"  is-unseen.bind="unseen" is-unread.bind="unread" click.call="log('list is clicked')">
+            <fabric-list-item-action repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+        </fabric-list-item>
+    </fabric-list>
+    <h3>List Item with Image</h3>
+    <fabric-list>
+    <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes" tertiary-text="Today we discussed the importance of a, b, and c in regards to d."
+        meta-text="2:42p" selectable.bind="selectable" is-selected.bind="selectable && selected"  is-unseen.bind="unseen" is-unread.bind="unread" image.bind="src" variant="image"  click.call="log('list is clicked')">
+        <fabric-list-item-action repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+    </fabric-list-item>
+    </fabric-list>
+    <h3>Document List Item (no unseen) </h3>
+    
+    <fabric-list-item primary-text="Alton Lafferty" secondary-text="Meeting notes"
+        meta-text="2:42p" selectable.bind="selectable" is-selected.bind="selectable && selected"  is-unseen.bind="unseen" is-unread.bind="unread" image.bind="src" variant="document"  click.call="log('list is clicked')">
+        <fabric-list-item-action repeat.for="icon of listicons.slice(1,4)" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+    </fabric-list-item>
+    
+    <h4>Select options</h4>
+    <fabric-checkbox label="Unread" checked.bind="unread"></fabric-checkbox>
+    <fabric-checkbox label="Unseen" checked.bind="unseen"></fabric-checkbox>
+    <fabric-checkbox label="Selectable" checked.bind="selectable"></fabric-checkbox>
+    <fabric-checkbox label="Selected" checked.bind="selected"></fabric-checkbox>    
+    <br>
+
+    <h3>List Item Action Icon</h3>
+        <fabric-list-item-action custom-css.bind="color" repeat.for="icon of listicons" icon.bind="icon" click.call="listiconclick()"></fabric-list-item-action>
+        <p>Use up to 4 list item action. for document, 3 is used in ms examples.</p>
+    <br>
+    <h2>Attributes</h2>
+    <h3>fabric-list</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>            
+        </tbody>
+    </table>
+    <h3>fabric-list-item</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>variant</td>
+                <td>string type</td>
+                <td>
+                    <code>"default" | "image" | "document"</code>
+                </td>
+            </tr>
+            <tr>
+                <td>primary-text</td>
+                <td>string vaue</td>
+                <td>above example, <code>Alton Lafferty</code> is primary-text</td>
+            </tr>
+            <tr>
+                <td>secondary-text</td>
+                <td>string vaue</td>
+                <td>above example, <code>Meeting notes</code> is secondary-text</td>
+            </tr>
+            <tr>
+                <td>tertiary-text</td>
+                <td>string vaue</td>
+                <td>above example, <code>Today we discussed the importance of a, b, and c in regards to d.</code> is tertiary-text</td>
+            </tr>
+            <tr>
+                <td>meta-text</td>
+                <td>string vaue</td>
+                <td>above example, <code>2:42p</code> is meta-text</td>
+            </tr>
+            <tr>
+                <td>image</td>
+                <td>src of image, a url or data:image base64 value</td>
+                <td>displays image when variant="image"</td>
+            </tr>
+            <tr>
+                <td>selectable</td>
+                <td>boolean value</td>
+                <td>if true, the list item can be selected</td>
+            </tr>
+            <tr>
+                <td>is-selected</td>
+                <td>boolean</td>
+                <td>if true, the list item is selected</td>
+            </tr>
+            <tr>
+                <td>is-unread</td>
+                <td>boolean value</td>
+                <td>if true, list item is marked as unread</td>
+            </tr>
+            <tr>
+                <td>is-unseen</td>
+                <td>boolean value</td>
+                <td>if true, the list item is not seen yet (kind of visual clue that these are new items)</td>
+            </tr>
+            <tr>
+                <td>click</td>
+                <td>Function call when the list item is clicked </td>
+                <td> use <code>click.call="functionName()"</code> to trigger</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h3>fabric-list-item-action</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>icon</td>
+                <td>One of icon type in Fabric UI icons, only the part after <code>.ms-Icon--</code> e.g. <code>plus</code> for
+                    <code>.ms-Icon--plus</code> </td>
+                <td>Adds actionable icons on the right side of list item above meta text</td>
+            </tr>
+            <tr>
+                <td>click</td>
+                <td>Function call when the list item action icon is clicked </td>
+                <td> use <code>click.call="functionName()"</code> to trigger</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+</template>

@@ -15,7 +15,7 @@ export const PersonaInitialsColors = {
     "red": <PersonaInitialsColor>"red",
     "darkRed": <PersonaInitialsColor>"darkRed",
 };
-export type PersonaVarient = "tiny" | "xs" | "sm" | "default" | "lg" | "xl" | "facePile" | "token";
+export type Personavariant = "tiny" | "xs" | "sm" | "default" | "lg" | "xl" | "facePile" | "token";
 
 export type PersonaPresence = "none" | "available" | "away" | "blocked" | "busy" | "dnd" | "offline";
 

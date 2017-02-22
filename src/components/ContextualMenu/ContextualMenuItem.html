@@ -1,12 +1,12 @@
 <template>
-    <li class="ms-ContextualMenu-item ${header ? 'ms-ContextualMenu-item--header' : ''} ${divider ? 'ms-ContextualMenu-item--divider' : ''}">
-        <template if.bind="header">${headerText}</template>
-        <template if.bind="!header">
-            <a ref="$contextualMenuLink" 
-                class="ms-ContextualMenu-link ${hasMenu ? 'ms-ContextualMenu-link--hasMenu' : ''} ${disabled ? 'is-disabled' : ''} ${selected ? 'is-selected' : ''}"
-            href.bind="href" click.trigger="linkClickHandler($event)" >${linkText}</a> <!--need to fix click.trigger to click.delegate when shadowdom issue is fixed-->
-            <i if.bind="icon !== ''" class="ms-ContextualMenu-subMenuIcon ms-Icon ms-Icon--${icon}"></i>
-        </template>
-        <content select="office-contextualmenu"></content>
+    <li class="ms-ContextualMenu-item ms-ContextualMenu-item--${variant} ${hasMenu ? 'ms-ContextualMenu-item--hasMenu' : ''}">
+        ${variant !== 'default' && variant !== 'divider' ? title : ''}
+        <a if.bind="variant === 'default'" ref="$contextualMenuLink" class="ms-ContextualMenu-link ${state}  ${disabled ? 'is-disabled' : ''} ${selected ? 'is-selected' : ''}"
+            href.bind="href" click.trigger="linkClickHandler($event)">${title}</a>
+            <!--need to fix click.trigger to click.delegate when shadowdom issue is fixed-->
+            <i if.bind="icon" class="ms-ContextualMenu-subMenuIcon ms-Icon ms-Icon--${icon} ms-fontSize-${iconSize}"></i>
+            <i if.bind="hasMenu && !(icon)" class="ms-ContextualMenu-subMenuIcon ms-Icon ms-Icon--ChevronRight"></i>
+            <!-- slot for sub menu -->
+            <slot></slot>
     </li>
 </template>

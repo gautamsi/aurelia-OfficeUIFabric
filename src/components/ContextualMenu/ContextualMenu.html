@@ -1,14 +1,15 @@
-<template class="ms-ContextualMenu-container">
-    <style>
+<template class="mm---ms-ContextualMenu-container is-hidden">
+    <!--<style>
         /* shim for .ms-ContextualMenu-link.ms-ContextualMenu-link--hasMenu ~ .ms-ContextualMenu  - display is added as custom element defaults to inline*/
-        .ms-ContextualMenu-link.ms-ContextualMenu-link--hasMenu ~ .ms-ContextualMenu-container {
+        xx.ms-ContextualMenu-link.ms-ContextualMenu-link--hasMenu ~ .ms-ContextualMenu-container {
             display: block;
             position: absolute;
             top: -1px;
             left: 178px;
         }
-    </style>
-    <ul ref="ctxMenuRoot" class="ms-ContextualMenu ${isOpen ? 'is-open' : ''} ${multiSelect ? 'ms-ContextualMenu--multiselect' : ''}">
-        <content select="office-contextualmenu-item"></content>
+    </style>-->
+    <ul ref="ctxMenuRoot" class="is-hidden ms-ContextualMenu ${isOpen ? 'is-open' : ''} ${multiSelect ? 'ms-ContextualMenu--multiselect' : ''}">
+        <!-- slot for menu items -->
+        <slot></slot>
     </ul>
 </template>

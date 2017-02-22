@@ -1,5 +1,5 @@
 <template>
-    <div class="ms-Persona ms-Persona--${varient} 
+    <div class="ms-Persona ms-Persona--${variant} 
         ms-Persona--${presence} 
         ms-Persona--${selectableCss} 
         ms-Persona--${darkTextCss} 
@@ -19,7 +19,7 @@
             <div class="ms-Persona-tertiaryText">${tertiaryText}</div>
             <div class="ms-Persona-optionalText">${optionalText}</div>
         </div>
-        <div class="ms-Persona-actionIcon" if.bind="varient==='token'" click.trigger="actionIconClick()">
+        <div class="ms-Persona-actionIcon" if.bind="variant==='token'" click.trigger="actionIconClick()">
             <i class="ms-Icon ms-Icon--${actionIcon}"></i>
         </div>
         <slot>

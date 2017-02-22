@@ -3,21 +3,21 @@
     <h1>Fabric FacePile</h1>
     <h3>tag: &lt;fabric-face-pile&gt;&lt;/fabric-face-pile&gt;</h3>
 
-    <h2 id="variants">Varients</h2>
+    <h2 id="variants">Variants</h2>
     <h3>Default</h3>
     
     <br>
     <fabric-face-pile overflow-text="+5" add-button-click.call="actionClick('msg','msg2')" add-icon="AddGroup">
         <fabric-persona initials="AL" initials-color="blue" presence="available" presence-icon="SkypeCheck" primary-text.bind="name"
-            secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" varient="facePile">
+            secondary-text.bind="title" tertiary-text.bind="status" optional-text.bind="detail" variant="facePile">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>        </fabric-persona>
-        <fabric-persona image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+        <fabric-persona image.bind="src" variant="facePile" primary-text.bind="name" secondary-text.bind="title">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
-        <fabric-persona image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+        <fabric-persona image.bind="src" variant="facePile" primary-text.bind="name" secondary-text.bind="title">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
-        <fabric-persona image.bind="src" varient="facePile" primary-text.bind="name" secondary-text.bind="title">
+        <fabric-persona image.bind="src" variant="facePile" primary-text.bind="name" secondary-text.bind="title">
             <fabric-persona-card org-chart-groups.bind="groups" persona.bind="persona" emails.bind="emails" phones.bind="phones" org-chart-persona-click.call="logPersona(persona,'msgmsg')"></fabric-persona-card>
         </fabric-persona>
     </fabric-face-pile>
@@ -47,7 +47,7 @@
                 <td>text appear when overflow happens (currently not tested)</td>
             </tr>
             <tr>
-                <td>add-button-click</code>
+                <td>add-button-click
                 </td>
                 <td>Function call when the add button is clicked </td>
                 <td> use <code>add-button-click.call="functionName()"</code> to trigger</td>

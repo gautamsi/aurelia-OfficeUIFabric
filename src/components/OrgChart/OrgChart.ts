@@ -1,5 +1,5 @@
 import { customElement, bindable, inject } from 'aurelia-framework';
-import { PersonaVarient, PersonaPresence, PersonaInitialsColor } from '../Persona/PersonaTypes';
+import { Personavariant, PersonaPresence, PersonaInitialsColor } from '../Persona/PersonaTypes';
 
 @customElement('fabric-org-chart')
 export class OrgChart {

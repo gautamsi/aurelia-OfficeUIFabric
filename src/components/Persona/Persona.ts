@@ -1,7 +1,7 @@
 import { customElement, bindable, inject } from 'aurelia-framework';
-import { PersonaPresence, PersonaInitialsColor, PersonaVarient } from './PersonaTypes';
+import { PersonaPresence, PersonaInitialsColor, Personavariant } from './PersonaTypes';
 import { isNullOrEmptyString, toBool } from '../../utilities/convert';
-import { Persona as OfficePersona } from './msPersona';
+import { Persona as FabricPersona } from './msPersona';
 
 @inject(Element)
 @customElement('fabric-persona')
@@ -17,7 +17,7 @@ export class Persona {
     @bindable public image: string = null;
     @bindable public initials: string = null;
     @bindable public tooltip: string = null;
-    @bindable public varient: PersonaVarient = "default";
+    @bindable public variant: Personavariant = "default";
     @bindable public darkText: boolean; // = false;
     @bindable public selectable: boolean; // = false;
 
@@ -29,11 +29,11 @@ export class Persona {
     private showImage: boolean = false;
     private selectableCss: string = null;
 
-    private _persona: OfficePersona;
+    private _persona: FabricPersona;
     constructor(private element: Element) {
 
     }
-    __varientChanged(newValue: string) {
+    __variantChanged(newValue: string) {
         this.showImage = !isNullOrEmptyString(this.image) && newValue !== "tiny";
     }
 
@@ -51,7 +51,7 @@ export class Persona {
     }
 
     attached() {
-        this._persona = new OfficePersona(this.element);
+        this._persona = new FabricPersona(this.element);
     }
 
     public actionIconClick() {

@@ -1,5 +1,7 @@
 <template>
-    <div ref="$spinner" class="ms-Spinner ${size === 'large' ? 'ms-Spinner--large' : '' }">
-        <div show.bind="showText === 'true' || showText === true || text !== defaultText" class="ms-Spinner-label">${text}</div>
-    </div>    
+    <div ref="spinnerElement" class="ms-Spinner ${size === 'large' ? 'ms-Spinner--large' : '' }">
+        <div show.bind="displayLabel === 'true' || displayLabel === true || label !== defaultLabel" class="ms-Spinner-label">
+            ${label}
+        </div>
+    </div>
 </template>
