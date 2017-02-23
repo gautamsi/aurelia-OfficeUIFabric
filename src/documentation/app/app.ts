@@ -22,6 +22,7 @@ export class App {
       { route: 'FacePile',        name: 'facepile',     moduleId: 'components/facepile/facepile',     nav: true,  title: 'FacePile',    settings: 'COMPONENTS' },
       { route: 'Icon',            name: 'icon',         moduleId: 'components/icons/icons',           nav: true,  title: 'Icon',        settings: 'COMPONENTS' },
       { route: 'Label',           name: 'label',        moduleId: 'components/label/labels',          nav: true,  title: 'Label',       settings: 'COMPONENTS' },
+      { route: 'Link',            name: 'link',         moduleId: 'components/link/link',             nav: true,  title: 'Link',        settings: 'COMPONENTS' },
       { route: 'List',            name: 'list',         moduleId: 'components/list/list',             nav: true,  title: 'List',        settings: 'COMPONENTS' },
       { route: 'OrgChart',        name: 'orgchart',     moduleId: 'components/orgchart/orgchart',     nav: true,  title: 'OrgChart',    settings: 'COMPONENTS' },
       { route: 'Overlay',         name: 'overlay',      moduleId: 'components/overlay/overlay',       nav: true,  title: 'Overlay',     settings: 'COMPONENTS' },

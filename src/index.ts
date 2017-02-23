@@ -33,6 +33,7 @@ export function configure(config: FrameworkConfiguration) {
     "./components/FacePile/FacePile",
     "./components/Overlay/Overlay",
     "./components/Label/FabricLabel",
+    "./components/Link/Link",
     "./components/List/List",
     "./components/ListItem/ListItem",
     "./components/ListItem/ListItemAction",
