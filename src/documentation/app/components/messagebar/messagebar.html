@@ -1,0 +1,77 @@
+<template>
+    <h1>Fabric MessageBar</h1>
+    <h3>tag: &lt;fabric-message-bar&gt;&lt;/fabric-message-bar&gt;</h3>
+
+<h2>Variants</h2>
+<h3>Default MessageBar</h3>
+<fabric-message-bar message-icon.bind="icon" link-text="Hyperlink1 string" link-click.call="log('link1 clicked')">"Lorem ipsum dolor sit amet, a elit sem interdum consectetur adipiscing elit."</fabric-message-bar>
+
+<h3>Success MessageBar</h3>
+<fabric-message-bar variant="success" message-icon.bind="icon" link-text="Hyperlink2 string" link-click.call="log('link2 clicked')">"Lorem ipsum dolor sit amet, a elit sem interdum consectetur adipiscing elit."</fabric-message-bar>
+
+<h3>Error MessageBar</h3>
+<fabric-message-bar variant="error" message-icon.bind="icon" link-text="Hyperlink3 string" link-click.call="log('link3 clicked')">"Lorem ipsum dolor sit amet, a elit sem interdum consectetur adipiscing elit."</fabric-message-bar>
+
+<h3>Blocked MessageBar</h3>
+<fabric-message-bar variant="blocked" message-icon.bind="icon" link-text="Hyperlink4 string" link-click.call="log('link4 clicked')">"Lorem ipsum dolor sit amet, a elit sem interdum consectetur adipiscing elit."</fabric-message-bar>
+
+<h3>Warning MessageBar</h3>
+<fabric-message-bar variant="warning" message-icon.bind="icon" link-text="Hyperlink5 string" link-click.call="log('link5 clicked')">"Lorem ipsum dolor sit amet, a elit sem interdum consectetur adipiscing elit."</fabric-message-bar>
+
+<h3>Severe Warning MessageBar</h3>
+<fabric-message-bar variant="severeWarning" message-icon.bind="icon" link-text="Opens Link example" link-href="#/Link">"Lorem ipsum dolor sit amet, a elit sem interdum consectetur adipiscing elit."</fabric-message-bar>
+<br>
+
+<fabric-button click.call="toggleIcon()">Click to change message-icon</fabric-button>
+<fabric-text-field value.bind="icon2" label="Custom Icon" description="Type one of the icon value and click above button"></fabric-text-field>
+<br>
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>variant</td>
+            <td>string value of MessageBarVariants</td>
+            <td><code>type MessageBarVariants = "info" | "success" | "error" | "blocked" | "warning" | "severeWarning";</code></td>
+        </tr>
+        <tr>
+            <td>message-text</td>
+            <td>string value</td>
+            <td>the message text</code></td>
+        </tr>
+        <tr>
+            <td>message-icon</td>
+            <td>One of icon type in Fabric UI icons, only the part after <code>.ms-Icon--</code> e.g. <code>Home</code> for
+                <code>.ms-Icon--plus</code> </td>
+            <td>use custom icons instead of default ones</td>
+        </tr>
+        <tr>
+            <td>link-text</td>
+            <td>string value</td>
+            <td>text for the hyperlink in the message, if message is null or undefined, it will not be visible</code></td>
+        </tr>
+        <tr>
+            <td>link-href</td>
+            <td>string value</td>
+            <td>href value for link</code></td>
+        </tr>
+        <tr>
+            <td>placeholder</td>
+            <td>string value</td>
+            <td>displays the placeholder text in the input field</code></td>
+        </tr>
+        <tr>
+            <td>link-click</td>
+            <td>Function call when the link is clicked </td>
+            <td> use <code>link-click.call="functionName()"</code> to trigger. link-href value is ignored if link-click is assigned.</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>

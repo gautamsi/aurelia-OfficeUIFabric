@@ -1,0 +1,17 @@
+<template containerless>
+    <div class="ms-MessageBar ms-MessageBar--${variant}">
+        <div class="ms-MessageBar-content">
+            <div class="ms-MessageBar-icon">
+                <i class="ms-Icon ms-Icon--${icon}"></i>
+            </div>
+            <div class="ms-MessageBar-text">
+                <slot>${messageText}</slot>
+                <template if.bind="linkText" >
+                <br />
+                <a href="${linkHref}" class="ms-Link" click.trigger="_linkClickHandler()">${linkText}</a>
+                </template>
+            </div>
+        </div>
+    </div>
+
+</template>
