@@ -30,6 +30,7 @@ export class App {
       { route: 'PersonaCard',     name: 'personacard',  moduleId: 'components/personacard/personacard', nav: true,  title: 'PersonaCard',     settings: 'COMPONENTS' },
       { route: 'Progress',        name: 'progress',     moduleId: 'components/progress/progress',    nav: true,  title: 'Progress Indicator',  settings: 'COMPONENTS' },
       { route: 'Spinner',         name: 'spinner',      moduleId: 'components/spinner/spinner',       nav: true,  title: 'Spinner',     settings: 'COMPONENTS' },
+      { route: 'TextField',       name: 'textfield',    moduleId: 'components/textfield/textfield',   nav: true,  title: 'TextField',   settings: 'COMPONENTS' },
       { route: 'components/*path',    name: 'route',        navigationStrategy: navStrat },
     ]);
     config.mapUnknownRoutes('inprogress/inprogress');

@@ -1,0 +1,70 @@
+<template>
+    <h1>Fabric TextField</h1>
+    <h3>tag: &lt;fabric-text-field&gt;&lt;/fabric-text-field&gt;</h3>
+
+<h2 id="variants">Variants</h2>
+<h3 id="default">Default</code></h3>
+
+<fabric-text-field label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<fabric-text-field label="Address" variant="multiline" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<fabric-text-field variant="placeholder" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<fabric-text-field variant="underlined" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<fabric-text-field placeholder=" Some placeholder" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<fabric-text-field placeholder=" Some placeholder" label="Address" variant="multiline" disabled.bind="isDisabled" value.bind="textvalue"></fabric-text-field>
+
+<fabric-text-field variant="placeholder" label="Name" disabled.bind="isDisabled" value.bind="textvalue"></fabric-text-field>
+
+<fabric-text-field placeholder=" Some placeholder" variant="underlined" label="Name" disabled.bind="isDisabled" value.bind="textvalue"></fabric-text-field>
+
+<br>
+<fabric-checkbox checked.bind="isDisabled">
+        check to disable all input field
+</fabric-checkbox>
+
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>variant</td>
+            <td>string value of TextFieldVariants</td>
+            <td><code>type TextFieldVariants = "default" | "multiline" |  "underlined" | "placeholder";</code><br> 
+                * do not provide placeholder text when using placeholder variant.
+             </td>
+        </tr>
+        <tr>
+            <td>label</td>
+            <td>string vaue</td>
+            <td>displays the label</code></td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>string vaue</td>
+            <td>displays the description</code></td>
+        </tr>
+        <tr>
+            <td>placeholder</td>
+            <td>string vaue</td>
+            <td>displays the placeholder text in the input field</code></td>
+        </tr>
+        <tr>
+            <td>disabled</code>
+            </td>
+            <td><code>true</code> or <code>false</code></td>
+            <td>enables or disables the input field</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>

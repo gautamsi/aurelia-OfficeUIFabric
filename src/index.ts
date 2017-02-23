@@ -44,5 +44,6 @@ export function configure(config: FrameworkConfiguration) {
     "./components/NavBar/NavBarItem",
     "./components/SearchBox/SearchBox",
     "./components/Spinner/Spinner",
+    "./components/TextField/TextField",
   ]);
 }

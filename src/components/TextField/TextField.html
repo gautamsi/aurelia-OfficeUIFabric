@@ -1,0 +1,8 @@
+<template>
+    <div ref="textFieldDiv" class="ms-TextField ms-TextField--${variant} ${disabled?'is-disabled':''}">
+        <label if.bind="label" class="ms-Label">${label}</label>
+        <input if.bind="variant !== 'multiline'" class="ms-TextField-field" type="text" value.bind="value" placeholder.bind="placeholder" disabled.bind="disabled">
+        <textarea if.bind="variant === 'multiline'" class="ms-TextField-field" value.bind="value" placeholder.bind="placeholder" disabled.bind="disabled"></textarea>
+        <span if.bind="description" class="ms-TextField-description">${description}</span>
+    </div>
+</template>
