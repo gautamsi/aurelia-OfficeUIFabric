@@ -24,6 +24,7 @@ export class App {
       { route: 'Label',           name: 'label',        moduleId: 'components/label/labels',          nav: true,  title: 'Label',       settings: 'COMPONENTS' },
       { route: 'Link',            name: 'link',         moduleId: 'components/link/link',             nav: true,  title: 'Link',        settings: 'COMPONENTS' },
       { route: 'List',            name: 'list',         moduleId: 'components/list/list',             nav: true,  title: 'List',        settings: 'COMPONENTS' },
+      { route: 'MessageBanner',   name: 'messagebanner',  moduleId: 'components/messagebanner/messagebanner', nav: true,  title: 'MessageBanner', settings: 'COMPONENTS' },
       { route: 'MessageBar',      name: 'messagebar',   moduleId: 'components/messagebar/messagebar', nav: true,  title: 'MessageBar',  settings: 'COMPONENTS' },
       { route: 'OrgChart',        name: 'orgchart',     moduleId: 'components/orgchart/orgchart',     nav: true,  title: 'OrgChart',    settings: 'COMPONENTS' },
       { route: 'Overlay',         name: 'overlay',      moduleId: 'components/overlay/overlay',       nav: true,  title: 'Overlay',     settings: 'COMPONENTS' },

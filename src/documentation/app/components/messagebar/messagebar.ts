@@ -1,5 +1,5 @@
 //import { bindable } from "aurelia-framework";
-export class CheckBox {
+export class messagebar {
 
     icon: string = '';
     icon2: string = "Home";

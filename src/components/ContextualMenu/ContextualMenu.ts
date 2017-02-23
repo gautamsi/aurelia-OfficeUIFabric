@@ -4,7 +4,7 @@ import { ContextualMenu as FabricContextualMenu } from './msContextualMenu';
 //@containerless
 @inject(Element, Parent)
 @customElement('fabric-contextual-menu')
-export class OfficeContextualMenu {
+export class ContextualMenu {
     @bindable tooltip: string = null;
     @bindable ctrlId: string = '';
     // @children('office-contextualmenu-item') $menuItems:OfficeContextualMenuItem[];
@@ -30,7 +30,7 @@ export class OfficeContextualMenu {
 
     attached() {
 
-        console.log(this.hostTarget);
+        // console.log(this.hostTarget);
 
         if (this.hostTarget) {
             this._menu = new FabricContextualMenu(this.ctxMenuRoot, this.hostTarget, this.position);

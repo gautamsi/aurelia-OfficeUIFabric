@@ -37,6 +37,7 @@ export function configure(config: FrameworkConfiguration) {
     "./components/List/List",
     "./components/ListItem/ListItem",
     "./components/ListItem/ListItemAction",
+    "./components/MessageBanner/MessageBanner",
     "./components/MessageBar/MessageBar",
     "./components/OrgChart/OrgChart",
     "./components/Panel/Panel",

@@ -3,7 +3,7 @@ import { customElement, bindable, inject } from 'aurelia-framework';
 @inject(Element)
 @customElement('fabric-button')
 export class Button {
-    @bindable public type: ButtonType = "default";
+    @bindable public variant: ButtonType = "default";
     @bindable public icon: string = "plus";
     @bindable public dropdownIcon: string;
     @bindable public label: string;
