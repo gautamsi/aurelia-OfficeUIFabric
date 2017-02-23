@@ -31,6 +31,7 @@ export class App {
       { route: 'Progress',        name: 'progress',     moduleId: 'components/progress/progress',    nav: true,  title: 'Progress Indicator',  settings: 'COMPONENTS' },
       { route: 'Spinner',         name: 'spinner',      moduleId: 'components/spinner/spinner',       nav: true,  title: 'Spinner',     settings: 'COMPONENTS' },
       { route: 'TextField',       name: 'textfield',    moduleId: 'components/textfield/textfield',   nav: true,  title: 'TextField',   settings: 'COMPONENTS' },
+      { route: 'Toggle',          name: 'toggle',       moduleId: 'components/toggle/toggle',         nav: true,  title: 'Toggle',      settings: 'COMPONENTS' },
       { route: 'components/*path',    name: 'route',        navigationStrategy: navStrat },
     ]);
     config.mapUnknownRoutes('inprogress/inprogress');

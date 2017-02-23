@@ -45,5 +45,6 @@ export function configure(config: FrameworkConfiguration) {
     "./components/SearchBox/SearchBox",
     "./components/Spinner/Spinner",
     "./components/TextField/TextField",
+    "./components/Toggle/Toggle",
   ]);
 }

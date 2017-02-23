@@ -4,9 +4,13 @@ export class CheckBox {
     isDisabled: boolean = false;
     checked: boolean = false;
     textvalue: string;
-    description: string = "description";
+    description: string = "Some Description";
 
     public log($event, msg: string) {
         console.log(msg);
+    }
+
+    public toggleDescription() {
+        this.description = this.description === '' ? "Some Description" : '';
     }
 }

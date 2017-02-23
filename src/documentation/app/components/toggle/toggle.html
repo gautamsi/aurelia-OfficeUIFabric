@@ -1,0 +1,66 @@
+<template>
+    <h1>Fabric Toggle</h1>
+    <h3>tag: &lt;fabric-toggle&gt;&lt;/fabric-toggle&gt;</h3>
+
+<h2 id="variants">Variants</h2>
+<h3 id="default">Default Toggle</code></h3>
+
+<fabric-toggle disabled.bind="isDisabled" checked.bind="checked" description.bind="description"></fabric-toggle>
+
+<h3 id="default">Default Toggle with custom On/Off text</code></h3>
+<fabric-toggle disabled.bind="isDisabled" checked.bind="checked" description.bind="description" on-text="Sure" off-text="Nope!"></fabric-toggle>
+
+<h3 id="default">Text Left Toggle</code></h3>
+<fabric-toggle variant="textLeft" disabled.bind="isDisabled" checked.bind="checked" description.bind="description"></fabric-toggle>
+
+<br>
+<label> Current Value:${checked}</label>
+<br>
+<h3>Disabled Toggle</h3>
+<fabric-toggle checked.bind="isDisabled" description="Toggle to disable above Toggles"></fabric-toggle>
+
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>variant</td>
+            <td>string value of ToggleVariants</td>
+            <td><code>type ToggleVariants = "default" | "textLeft"</code></td>
+        </tr>
+        <tr>
+            <td>checked</td>
+            <td>boolean value</td>
+            <td>value of Toggle </code></td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>string value</td>
+            <td>displays the description</code></td>
+        </tr>
+        <tr>
+            <td>on-text</td>
+            <td>string value</td>
+            <td>change default text when toggle is ON</code></td>
+        </tr>
+        <tr>
+            <td>off-text</td>
+            <td>string value</td>
+            <td>change default text when toggle is OFF</code></td>
+        </tr>
+        <tr>
+            <td>disabled</code>
+            </td>
+            <td><code>true</code> or <code>false</code></td>
+            <td>enables or disables the input field</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>
