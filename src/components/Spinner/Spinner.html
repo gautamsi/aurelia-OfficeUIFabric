@@ -1,0 +1,7 @@
+<template>
+    <div ref="spinnerElement" class="ms-Spinner ${size === 'large' ? 'ms-Spinner--large' : '' }">
+        <div show.bind="displayLabel === 'true' || displayLabel === true || label !== defaultLabel" class="ms-Spinner-label">
+            ${label}
+        </div>
+    </div>
+</template>

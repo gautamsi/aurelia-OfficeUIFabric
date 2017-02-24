@@ -1,0 +1,74 @@
+<template>
+    <h1>Fabric MessageBanner</h1>
+    <h3>tag: &lt;fabric-message-banner&gt;&lt;/fabric-message-banner&gt;</h3>
+
+<h2>Variants</h2>
+<h3>Default MessageBanner</h3>
+<fabric-message-banner message="You have reached your total storage on OneDrive. Please upgrade your storage plan if you need more storage." 
+    button-text="Get More Storage" button-click.call="log('button clicked')" show-banner.bind="showBanner"></fabric-message-banner>
+
+<h3>Default MessageBanner hidden by default (using Aurelia's show.bind feature) (click button to show this banner)</h3>
+<fabric-message-banner hide-initially="true" message="You have reached your total storage on OneDrive. Please upgrade your storage plan if you need more storage." 
+    button-text="Get More Storage" button-click.call="log('button clicked')" show-banner.bind="showBanner" show.bind="showBanner"></fabric-message-banner>
+
+<h3>MessageBanner with custom content</h3>
+<fabric-message-banner message="You have reached your total storage on OneDrive. Please upgrade your storage plan if you need more storage." 
+    button-text="Get More Storage" button-click.call="log('button clicked')" show-banner.bind="showBanner">
+    <fabric-checkbox label="Check to temperory increase storage"></fabric-checkbox>
+</fabric-message-banner>
+
+<br>
+<fabric-button click.call="show()">Click to unhide banner</fabric-button>
+
+
+<h3>Custom content for Button</h3>
+for example:
+<p>&lt;fabric-message-banner message=&quot;You have reached your total storage on OneDrive. Please upgrade your storage plan if you need more storage.&quot; 
+    button-text=&quot;Get More Storage&quot; button-click.call=&quot;log(&apos;button clicked&apos;)&quot; show.bind=&quot;showBanner&quot;&gt;
+    &lt;fabric-checkbox label=&quot;Check to temperory increase storage&quot;&gt;&lt;/fabric-checkbox&gt;
+&lt;/fabric-message-banner&gt;
+</p>
+
+
+<br>
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>message</td>
+            <td>string value</td>
+            <td>the message</td>
+        </tr>
+        <tr>
+            <td>button-text</td>
+            <td>string value</td>
+            <td>button label, if custom </td>
+        </tr>
+        <tr>
+            <td>show-banner</td>
+            <td>boolean value</td>
+            <td>when set to true (valueChanged), if Banner is hidded, it will unhide the banner</td>
+        </tr>
+        <tr>
+            <td>show (Aurelia's hide unhide feature using show.bind)</td>
+            <td>boolean value</td>
+            <td>if false, the Banner is hidden by default, change show.bind variable to true to unhide the banner. <br>
+                when the banner is dismissed using close button, it can only be visible by setting show-banner and show to true value
+            </td>
+        </tr>
+        <tr>
+            <td>button-click</td>
+            <td>Function call when the button is clicked, when using custom content, this is ignored </td>
+            <td> use <code>button-click.call="functionName()"</code> to trigger. link-href value is ignored if link-click is assigned.</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>

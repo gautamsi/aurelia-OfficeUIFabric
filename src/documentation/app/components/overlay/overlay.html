@@ -1,0 +1,50 @@
+<template>
+    <h1>Fabric Overlay</h1>
+    <h3>tag: &lt;fabric-overlay&gt;&lt;/fabric-overlay&gt;</h3>
+
+    <style scoped="scoped">
+        .impred {
+            border-style: double;
+            border-color: darkmagenta;
+        }
+        .opacity {
+            opacity: 0.7;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
+
+<h2 id="variants">Variants</h2>
+<h3 id="default">Default</code></h3>
+<fabric-overlay is-open.bind="showOverlay" variant.bind="variant"></fabric-overlay>
+<fabric-button click.call="overlay()">Open Overlay</fabric-button>
+<h3 id="default">Dark</code></h3>
+<fabric-button click.call="overlay('dark')">Open Overlay</fabric-button>
+
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>variant</code>
+            </td>
+            <td>string vaue</td>
+            <td><code>"default" | "dark"</code></td>
+        </tr>
+        <tr>
+            <td>is-open</code>
+            </td>
+            <td><code>true</code> or <code>false</code></td>
+            <td>if set to true, the overlay will show. two way binding sets value back to false in view model.</td>
+        </tr>        
+    </tbody>
+</table>
+<br>
+</template>

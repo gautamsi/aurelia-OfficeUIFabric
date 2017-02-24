@@ -1,0 +1,10 @@
+<template>
+    <div ref="toggleDiv" class="ms-Toggle ms-Toggle--${variant} ${disabled? 'is-disabled' : ''}">
+        <span class="ms-Toggle-description">${description}</span>
+        <input type="checkbox" id="${controlId}" class="ms-Toggle-input" checked.bind="checked" />
+        <label ref="_toggleField" keyup.delegate="_toggleHandler()" click.delegate="_toggleHandler()" for="${controlId}" class="ms-Toggle-field  ${checked? 'is-selected' : ''}" tabindex="${disabled? -1:0}">
+            <span class="ms-Label ms-Label--off">${offText}</span>
+            <span class="ms-Label ms-Label--on">${onText}</span>
+        </label>
+    </div>
+</template>

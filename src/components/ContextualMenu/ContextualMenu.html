@@ -1,0 +1,15 @@
+<template class="mm---ms-ContextualMenu-container is-hidden">
+    <!--<style>
+        /* shim for .ms-ContextualMenu-link.ms-ContextualMenu-link--hasMenu ~ .ms-ContextualMenu  - display is added as custom element defaults to inline*/
+        xx.ms-ContextualMenu-link.ms-ContextualMenu-link--hasMenu ~ .ms-ContextualMenu-container {
+            display: block;
+            position: absolute;
+            top: -1px;
+            left: 178px;
+        }
+    </style>-->
+    <ul ref="ctxMenuRoot" class="ms-ContextualMenu ${isOpen ? 'is-open' : 'is-hidden'} ${multiSelect ? 'ms-ContextualMenu--multiselect' : ''}">
+        <!-- slot for menu items -->
+        <slot></slot>
+    </ul>
+</template>

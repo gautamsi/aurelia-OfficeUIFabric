@@ -1,0 +1,16 @@
+<template>
+  <div class="ms-OrgChart ms-OrgChart--${variant}">
+    <div class="ms-OrgChart-group" repeat.for="group of groups">
+      <div if.bind="group.title" class="ms-OrgChart-groupTitle">${group.title}</div>
+      <ul class="ms-OrgChart-list">
+        <li class="ms-OrgChart-listItem" repeat.for="persona of group.personas">
+          <button class="ms-OrgChart-listItemBtn" tabindex="1" click.trigger="btnClick(persona)">
+            <fabric-persona primary-text.bind="persona.primaryText" secondary-text.bind="persona.secondaryText" 
+              presence.bind="persona.presence" presence-icon.bind="persona.presenceIcon" image.bind="persona.image" 
+              initials.bind="persona.initials" initials-color.bind="persona.initialsColor" ></fabric-persona>
+            </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>

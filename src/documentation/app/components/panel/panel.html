@@ -1,0 +1,127 @@
+<template>
+
+    <h1>Fabric panel</h1>
+    <h3>tag: &lt;fabric-panel&gt;&lt;/fabric-panel&gt;</h3>
+
+    <h2 id="variants">Example</h2>
+    <h3>Sizes</h3>
+    <h4>Default size</h4>    
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('sm')"></fabric-button>
+    <h4>Medium size</h4>
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('md')"></fabric-button>
+    <h4>Large size</h4>
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('lg')"></fabric-button>
+    <h4>Extra large size</h4>    
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('xl')"></fabric-button>
+    <h4>Extra Extra large size</h4> 
+    <fabric-button ref="btn5" type="command" label="Open Panel" icon="home" click.call="open('xxl')"></fabric-button>
+    <br>
+
+    <h3>Directions</h3>
+    default directon: "right"
+
+    <fabric-label>Current direction: "${direction}"</fabric-label>
+
+    <fabric-button ref="btn5" type="command" label="change direction" icon="home" click.call="toggledirection()"></fabric-button>
+
+    <fabric-panel header-text="Button variants" open.bind="openPanel" size.bind="size" direction.bind="direction">
+
+        <!--<fabric-searchbox></fabric-searchbox>-->
+        <!--<fabric-searchbox repeat.for="icon of listicons" " search-button.bind="true " search.delegate="listiconclick(icon, $event) "></fabric-searchbox>-->
+
+        <!--<fabric-spinner></fabric-spinner>
+            <fabric-spinner size="large"></fabric-spinner>
+            <fabric-spinner show-text='true'></fabric-spinner>
+            <fabric-spinner size="large" text="Spinning..."></fabric-spinner>-->
+        <h3 id="default">Default <code>type="default" || "basic" || ""</code></h3>
+
+        <fabric-button type="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" ref.bind="basic" click.call="log(openPanel)">
+        </fabric-button>
+        <br>
+        <p>
+            Default with <code>dropdown-icon="ChevronDown" btn-class="custom class name"</code>
+        </p>
+        &nbsp;
+        <fabric-button type="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" dropdown-icon="ChevronDown" btn-class="impred">
+        </fabric-button>
+
+        <h3 id="primary">Primary <code>type="primary"</code></h3>
+
+        <p>Where multiple buttons are presented together, this is the default action when submitting the form.</p>
+
+        <fabric-button type="primary" label="Create Account" disabled.bind="isDisabled" ref.bind="primary" click.call="log($event, 'Clicked' + primary.type)">
+        </fabric-button>
+        <p>
+            Primary with <code>dropdown-icon="Package"</code>
+        </p>
+        <fabric-button type="primary" disabled.bind="isDisabled" icon="minus" dropdown-icon="Package">
+            Creste Account
+        </fabric-button>
+
+        <h3 id="compound">Compound <code>type="compound"</code></h3>
+        <p>Provides a second line of text to explain the action the button takes.</p>
+
+        <fabric-button type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+            disabled.bind="isDisabled" ref="compound" click.call="log('Clicked' + compound.type)">
+            </fabric-button>
+            <p>
+                Compound with <code>dropdown-icon="History"</code>
+            </p>
+            <fabric-button type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+                dropdown-icon="History" disabled.bind="isDisabled" ref="compound">
+                </fabric-button>
+
+                <h3 id="hero">Hero <code>type="hero"</code>> </h3>
+                <p>Similar to the Command variant, but with a larger size to draw attention to important actions.</p>
+
+                <fabric-button type="hero" icon="Add" label="Create Account" disabled.bind="isDisabled" ref="hero">
+                </fabric-button>
+                <p>
+                    Hero type with <code>icon="Attach"" dropdown-icon="PhotoCollection"</code>
+                </p>
+                <fabric-button type="hero" icon="Attach" label="Create Account" disabled.bind="isDisabled" ref="hero" dropdown-icon="PhotoCollection">
+                </fabric-button>
+
+    </fabric-panel>
+
+    <h2>Attributes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>header-text</td>
+                <td>string value</td>
+                <td>Header text</td>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>PanelSize type value</td>
+                <td><code>type PanelSize = "default" | "md" | "lg" | "xl" | "xxl";</code> default is same as md</td>
+            </tr>
+            <tr>
+                <td>direction</td>
+                <td>PanelDirection type value</td>
+                <td><code>type PanelDirection = "left" | "right";</code></td>
+            </tr>
+            <tr>
+                <td>open</td>
+                <td>boole value</td>
+                <td>change to true to open the Panel. once panel is closed two-way binding sets the bound variable to false</td>
+            </tr>
+            <tr>
+                <td>on-close</code>
+                </td>
+                <td>call function when you need to know when it is closed.</td>
+                <td> use <code>on-close.call="functionName()"</code> to trigger
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</template>

@@ -1,0 +1,20 @@
+<template>
+    <div ref="bannerDiv" class="ms-MessageBanner">
+        <div class="ms-MessageBanner-content">
+            <div class="ms-MessageBanner-text">
+                <div class="ms-MessageBanner-clipper">
+                    ${message}
+                </div>
+            </div>
+            <button class="ms-MessageBanner-expand">
+                <i class="ms-Icon ms-Icon--ChevronDown"></i>
+            </button>
+            <div class="ms-MessageBanner-action">
+                <slot><fabric-button variant="primary" if.bind="buttonText" click.call="_buttonClickHandler()">${buttonText}</fabric-button></slot>
+            </div>
+        </div>
+        <button class="ms-MessageBanner-close" click.delegate="_closeHandler()">
+            <i class="ms-Icon ms-Icon--Clear"></i>
+        </button>
+    </div>
+</template>

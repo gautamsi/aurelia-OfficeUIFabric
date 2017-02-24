@@ -1,0 +1,46 @@
+<template>
+    <h1>Fabric Spinner</h1>
+    <h3>tag: &lt;fabric-spinner&gt;&lt;/fabric-spinner&gt;</h3>
+
+    <h2 id="variants">Variants</h2>
+    <h3>Default Spinner</h3>
+
+    <fabric-spinner></fabric-spinner>
+    <h3>Large Spinner</h3>
+    <fabric-spinner size="large"></fabric-spinner>
+    <h3>Spinner with Label</h3>
+    <fabric-spinner display-label.bind="true"></fabric-spinner>
+    <h3>Large Spinner with custom Label</h3>
+    <fabric-spinner size="large" label="Spinning..."></fabric-spinner>
+
+    <h2>Attributes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>size</td>
+                <td><code>large</code></td>
+                <td>
+                    set to "large" when you want large Spinner
+                </td>
+            </tr>
+            <tr>
+                <td>display-label</td>
+                <td>boolean value</td>
+                <td>if true, it will show the label, default label is "Loading..."</td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>text vaue</td>
+                <td>sets label, when label is not default value, it always displays the label</td>
+            </tr>        
+        </tbody>
+    </table>
+    <br>
+</template>

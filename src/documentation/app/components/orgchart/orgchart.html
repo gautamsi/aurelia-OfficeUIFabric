@@ -1,0 +1,57 @@
+<template>
+
+    <h1>Fabric OrgChart</h1>
+    <h3>tag: &lt;fabric-org-chart&gt;&lt;/fabric-org-chart&gt;</h3>
+
+    <h2 id="variants">variants</h2>
+    <h3>Default</h3>
+    
+    <fabric-org-chart groups.bind="groups" persona-click.call="logPersona(persona,'msgmsg')"></fabric-org-chart>
+            
+
+    <h2>Attributes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>groups</td>
+                <td>different groups used in org chart</td>
+                <td> use the following IOrgChartGroup and IPersona (partial of persona). groups is of type IOrgChartGroup[]. 
+                    As observed in MS example and in Outlook org chart, First group should contain hierarchy from top to Manager of Manager of the persona. 2nd group should contain only one persona, the Manager of the persona. third group should be persona with other subordinates. last group should be staffs or the direct reports.
+                    <pre>
+                        <code>
+interface IOrgChartGroup {
+    title?: string;
+    personas: IPersona[];
+}
+
+interface IPersona {
+    primaryText: string;
+    SecondaryText: string;
+    image?: string;
+    initials?: string;
+    initialsColor?: PersonaInitialsColor;
+    presence: PersonaPresence;
+    presenceIcon?: string;
+}
+                        </code>
+                    </pre>
+                </td>
+            </tr>            
+            <tr>
+                <td>persona-click</code>
+                </td>
+                <td>Function call when the persona is clicked</td>
+                <td> use <code>persona-click.call="functionName(persona,your args)"</code> to trigger, persona clicked is passed as first argument
+                </td>
+            </tr>
+        </tbody>
+    </table>
+            <br>
+</template>

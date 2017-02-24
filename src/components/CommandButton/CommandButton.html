@@ -1,0 +1,17 @@
+<template>
+  <div ref="commandDiv" class="ms-CommandButton ${customClass} ms-CommandButton--${variant} ${state} ${isDisabled ? 'is-disabled' : ''}">
+    <button class="ms-CommandButton-button" disabled.bind="isDisabled" tabIndex="${isDisabled ? -1 : 0}" click.trigger="_buttonClickedHandler()">
+      <span if.bind="variant !== 'TextOnly'" class="ms-CommandButton-icon ms-fontColor-${iconColor}"><i class="ms-Icon ms-Icon--${icon}"></i></span>
+      <span if.bind="variant !== 'actionButton' && variant !== 'noLabel'" class="ms-CommandButton-label">${label}</span>
+      <span if.bind="dropdown" class="ms-CommandButton-dropdownIcon"><i class="ms-Icon ms-Icon--${dropdownIcon}"></i></span>
+    </button>
+    <button if.bind="split === true" disabled.bind="isDisabled" class="ms-CommandButton-splitIcon">
+      <i class="ms-Icon ms-Icon--${splitIcon}"></i>
+    </button>
+    <fabric-contextual-menu is-open.bind="dropdown || split">
+      <!-- contextualmenu Item slot -->
+      <slot>
+      </slot>
+    </fabric-contextual-menu>
+  </div>
+</template>

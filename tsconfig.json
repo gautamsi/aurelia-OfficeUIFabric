@@ -1,28 +1,39 @@
 {
-  "version": "1.7.3",
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": "src/",
+    "outDir": "dist/",
     "sourceMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "target": "es5",
     "module": "amd",
-    "moduleResolution": "classic",
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
-    "noResolve": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noUnusedParameters": false,
+    "allowUnreachableCode": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
     "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom"]
   },
   "filesGlob": [
     "./src/**/*.ts",
     "./test/**/*.ts",
-    "./typings/**/*.d.ts",
-    "!./jspm_packages/**/*.d.ts"
+    "./typings/index.d.ts",
+    "./custom_typings/**/*.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "jspm_packages",
+    "temp"
   ],
   "atom": {
     "rewriteTsconfig": false

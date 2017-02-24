@@ -1,0 +1,86 @@
+<template>
+    <h1>Fabric TextField</h1>
+    <h3>tag: &lt;fabric-text-field&gt;&lt;/fabric-text-field&gt;</h3>
+
+<h2 id="variants">Variants</h2>
+<h3>Default TextField</code></h3>
+
+<fabric-text-field label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<h3>Multiline TextField</code></h3>
+
+<fabric-text-field label="Address" variant="multiline" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+<h3>Placeholder TextField</code></h3>
+
+<fabric-text-field variant="placeholder" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<h3>Underlined TextField</code></h3>
+
+<fabric-text-field variant="underlined" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<h3>Default TextField with placeholder text</code></h3>
+<fabric-text-field placeholder=" Some placeholder" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<h3>Multiline TextField with placeholder text</code></h3>
+<fabric-text-field placeholder=" Some placeholder" label="Address" variant="multiline" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<h3>Underlined TextField with placeholder text</code></h3>
+<fabric-text-field placeholder=" Some placeholder" variant="underlined" label="Name" disabled.bind="isDisabled" value.bind="textvalue" description.bind="description"></fabric-text-field>
+
+<br>
+<h3>Disabled TextField</h3>
+<fabric-checkbox checked.bind="isDisabled">
+        Check to disable all TextFields
+</fabric-checkbox>
+
+<fabric-button click.call="toggleDescription()">
+        Click to toggle description
+</fabric-button>
+<br>
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>variant</td>
+            <td>string value of TextFieldVariants</td>
+            <td><code>type TextFieldVariants = "default" | "multiline" |  "underlined" | "placeholder";</code><br> 
+                * do not provide placeholder text when using placeholder variant.
+             </td>
+        </tr>
+        <tr>
+            <td>value</td>
+            <td>string value</td>
+            <td>value of the text field</code></td>
+        </tr>
+        <tr>
+            <td>label</td>
+            <td>string value</td>
+            <td>value of the TextField</code></td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>string value</td>
+            <td>displays the description</code></td>
+        </tr>
+        <tr>
+            <td>placeholder</td>
+            <td>string value</td>
+            <td>displays the placeholder text in the input field</code></td>
+        </tr>
+        <tr>
+            <td>disabled</code>
+            </td>
+            <td><code>true</code> or <code>false</code></td>
+            <td>enables or disables the input field</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>

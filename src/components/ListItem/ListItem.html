@@ -1,0 +1,40 @@
+<template click.delegate="clickHandler($event)">
+    <!--<style scoped>
+        .ms-ListItem.ms-ListItem--document .ms-ListItem-itemIcon {
+            text-align: right;
+        }
+        
+        .ms-ListItem.ms-ListItem--document .ms-ListItem-itemIcon .ms-Icon {
+            padding-right: 4px;
+        }
+        
+        .ms-ListItem-tertiaryText {
+            line-height: 16px;
+        }
+        
+        .icon-right {
+            float: right;
+        }
+    </style>-->
+    <div class="ms-ListItem ms-ListItem--${variant} ${selectable ? 'is-selectable ' : ' '} ${isSelected ? 'is-selected ' : ' '} ${isUnseen && variant !=='document' ? 'is-unseen ' : ' '} ${isUnread ? 'is-unread ' : ' '}">
+        <div if.bind="variant ==='image'" class="ms-ListItem-image">            
+            <img show.bind="image" src="${image}" class="ms-ListItem-image" alt="${imagealt}" style="margin-left: 0px">
+        </div>
+        <div if.bind="variant ==='document'" class="ms-ListItem-itemIcon" style="width: 32px">
+            <!--<i class="ms-Icon ms-Icon--${icon}"></i>-->
+        </div>
+        <!--<div if.bind="variant ==='document' && largeIcon === true" class="ms-ListItem--icon ms-ListItem-itemIcon ms-ListItem-image icon-${iconAlign}" style="text-align:center"
+        click.delegate="iconClickHandler()">
+            <i class="ms-Icon ms-Icon--${icon}"></i>
+        </div>        -->
+        <span class="ms-ListItem-primaryText ">${primaryText}</span>
+        <span class="ms-ListItem-secondaryText ">${secondaryText}</span>
+        <span class="ms-ListItem-tertiaryText ">${variant !== 'document'? tertiaryText : ' '}</span>
+        <span if.bind="iconAlign !== 'right'" class="ms-ListItem-metaText ">${metaText}</span>
+        <div class="ms-ListItem-selectionTarget js-toggleSelection " click.trigger="isSelected = !isSelected"></div>
+        <div class="ms-ListItem-actions" show.bind="iconAlign !== 'right'">
+            <!-- fabric-listitem-action -->
+            <slot></slot>
+        </div>
+    </div>
+</template>

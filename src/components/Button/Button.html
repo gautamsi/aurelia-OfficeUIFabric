@@ -1,0 +1,8 @@
+<template>
+    <button class="ms-Button ms-Button--${variant} ${disabled?'is-disabled':''} ${btnClass}" disabled.bind="disabled" click.trigger="clickHandler($event)">
+        <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--${icon}"></i></span>
+        <span class="ms-Button-label"><slot> ${label}</slot></span>
+        <span class="ms-Button-description">${description}</span>
+        <span if.bind="dropdownIcon" class="ms-Button-dropdownIcon"><i class="ms-Icon ms-Icon--${dropdownIcon}"></i></span>
+    </button>
+</template>

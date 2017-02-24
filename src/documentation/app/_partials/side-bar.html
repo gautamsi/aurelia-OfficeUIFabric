@@ -1,0 +1,212 @@
+<template bindable="router">
+    <require from="../util/ArrayFilter"></require>
+    <fabric-nav-link name="Home" url="#/" style="list-style:none"></fabric-nav-link>
+<fabric-nav>
+    <fabric-nav-group name="COMPONENTS" is-expanded="true">
+        <fabric-nav-link name.one-way="row.title || row.name" 
+            url.one-way="row.href" 
+            repeat.for="row of router.navigation | arrayFilter: 'settings': 'COMPONENTS'"
+            is-selected.one-way="row.isActive"></fabric-nav-link>       
+    </fabric-nav-group>
+</fabric-nav>
+<!--<div class="SidebarSection ms-Nav-group is-expanded">
+        <button class="ms-Nav-groupButton">
+                    <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronDown"></i>
+                    <span>
+                        Getting Started
+                    </span>
+                    </button>
+        <div class="LinkContainer ms-Nav-groupContent ms-u-slideDownIn20">
+
+
+            <a href="Getting Started/Building.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Building</a>
+
+
+
+            <a href="Getting Started/Bundling.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Bundling</a>
+
+
+
+            <a href="Getting Started/Componentslist.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Componentslist</a>
+
+
+
+            <a href="Getting Started/Contributing.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Contributing</a>
+
+
+
+            <a href="Getting Started/Packages.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Packages</a>
+
+
+
+            <a href="Getting Started/Resources.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Resources</a>
+
+
+
+            <a href="Getting Started/Roadmap.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Roadmap</a>
+
+
+        </div>
+    </div>
+
+    <div class="SidebarSection ms-Nav-group is-expanded">
+        <button class="ms-Nav-groupButton">
+                    <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronDown"></i>
+                    <span>
+                        Components
+                    </span>
+                    </button>
+        <div class="LinkContainer ms-Nav-groupContent ms-u-slideDownIn20">
+
+
+            <a href="Components/Breadcrumb/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Breadcrumb</a>
+
+
+
+            <a href="Components/Button/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Button</a>
+
+
+
+            <a href="Components/Callout/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Callout</a>
+
+
+
+            <a href="Components/CheckBox/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">CheckBox</a>
+
+
+
+            <a href="Components/ChoiceFieldGroup/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">ChoiceFieldGroup</a>
+
+
+
+            <a href="Components/CommandBar/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">CommandBar</a>
+
+
+
+            <a href="Components/CommandButton/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">CommandButton</a>
+
+
+
+            <a href="Components/ContextualMenu/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">ContextualMenu</a>
+
+
+
+            <a href="Components/DatePicker/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">DatePicker</a>
+
+
+
+            <a href="Components/Dialog/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Dialog</a>
+
+
+
+            <a href="Components/Dropdown/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Dropdown</a>
+
+
+
+            <a href="Components/FacePile/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">FacePile</a>
+
+
+
+            <a href="Components/Label/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Label</a>
+
+
+
+            <a href="Components/Link/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Link</a>
+
+
+
+            <a href="Components/List/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">List</a>
+
+
+
+            <a href="Components/ListItem/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">ListItem</a>
+
+
+
+            <a href="Components/MessageBanner/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">MessageBanner</a>
+
+
+
+            <a href="Components/MessageBar/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">MessageBar</a>
+
+
+
+            <a href="Components/OrgChart/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">OrgChart</a>
+
+
+
+            <a href="Components/Overlay/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Overlay</a>
+
+
+
+            <a href="Components/Panel/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Panel</a>
+
+
+
+            <a href="Components/PeoplePicker/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">PeoplePicker</a>
+
+
+
+            <a href="Components/Persona/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Persona</a>
+
+
+
+            <a href="Components/PersonaCard/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">PersonaCard</a>
+
+
+
+            <a href="Components/Pivot/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Pivot</a>
+
+
+
+            <a href="Components/ProgressIndicator/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">ProgressIndicator</a>
+
+
+
+            <a href="Components/SearchBox/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">SearchBox</a>
+
+
+
+            <a href="Components/Spinner/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Spinner</a>
+
+
+
+            <a href="Components/Table/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Table</a>
+
+
+
+            <a href="Components/TextField/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">TextField</a>
+
+
+
+            <a href="Components/Toggle/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Toggle</a>
+
+
+        </div>
+    </div>
+
+    <div class="SidebarSection ms-Nav-group is-expanded">
+        <button class="ms-Nav-groupButton">
+                    <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronDown"></i>
+                    <span>
+                        Samples
+                    </span>
+                    </button>
+        <div class="LinkContainer ms-Nav-groupContent ms-u-slideDownIn20">
+
+
+            <a href="Samples/Form/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Form</a>
+
+
+
+            <a href="Samples/Languages/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">Languages</a>
+
+
+
+            <a href="Samples/VideoPortal/index.html" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover">VideoPortal</a>
+
+
+        </div>
+    </div>-->
+
+</template>

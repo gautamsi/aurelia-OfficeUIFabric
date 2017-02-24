@@ -1,0 +1,59 @@
+<template>
+
+<h1>Fabric Progress</h1>
+<h3>tag: &lt;fabric-progress&gt;&lt;/fabric-progress&gt;</h3>
+
+<h2 id="variants">Example</h2>
+
+<code>title="Example Title" description="Example Description" percent=".33"</code><br>
+<fabric-progress title="Example Title" description="Example Description"  percent=".33"></fabric-progress>
+<br>
+<fabric-progress title="Example Title" description="Example Description"  percent=".3"></fabric-progress>
+<br>
+
+<code>title="Example Title" description="Example Description" total="100" progress="20"</code><br>
+<fabric-progress title="Example Title" description="Example Description" total.bind="total" progress.bind="progress"></fabric-progress>
+<br>
+
+<fabric-button click.call="start()">Start Progress Bar</fabric-button>
+
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>title</td>
+            <td>string value</td>
+            <td>Title of the progress bar</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>string value</td>
+            <td>short description for the progress bar</td>
+        </tr>
+        <tr>
+            <td>total</td>
+            <td>numeric value</td>
+            <td>total value for the progress calculation</td>
+        </tr>
+        <tr>
+            <td>progress</td>
+            <td>numeric value</td>
+            <td>current progress of the progress bar</td>
+        </tr>
+        <tr>
+            <td>percent</code>
+            </td>
+            <td>numeric value between 0 and 1</td>
+            <td>% value for the progress bar, use percent when you calcualte the percent otherwise user progress and total values</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+</template>

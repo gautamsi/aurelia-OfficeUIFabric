@@ -1,0 +1,86 @@
+<template>
+    <style scoped="scoped">
+        .icongrid {
+            display: flex;
+            list-style: none;
+            -webkit-box-pack: start;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 40px;
+        }
+        .icongrid  li{
+            float: left;
+            background-color: #f8f8f8;
+            -webkit-box-align: center;
+            align-items: center;
+            color: #3C3C3C;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            font-size: 36px;
+            height: 80px;
+            justify-content: space-around;
+            padding: 10px;
+            margin: 0 5px 5px 0;
+            width: 100px;
+        }
+        .icongrid  li span{
+            color: #333;
+            font-size: 11px;           
+        }
+    </style>
+<h1>Fabric Icon</h1>
+<h3>tag: &lt;fabric-icon&gt;&lt;/fabric-icon&gt;</h3>
+
+<h2 id="variants">Example</h2>
+
+<code>icon="CheckBox"</code><br>
+<fabric-icon icon="Checkbox" click.call="log('Checkbox')"></fabric-icon>
+<br>
+
+<code>icon="Print"</code><br>
+<fabric-icon icon="Print" click.call="log('Print')"></fabric-icon>
+<br>
+
+
+<h2>Attributes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>attribute</th>
+            <th>possible values</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>icon</td>
+            <td>IconType from "ms-icon--IconType"</td>
+            <td>See All Icons section for list of possible value</td>
+        </tr>
+        <tr>
+            <td>click.call</code>
+            </td>
+            <td>function</td>
+            <td>use click.call to trigger for click event on the icon</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<h2> All Icons </h2>
+<ul class="icongrid">
+    <li repeat.for="icon of icons">
+        <fabric-icon icon="${icon}" title="${$icon}" aria-hidden="true"></fabric-icon>
+        <span>${icon}</span>
+    </li>
+</ul>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <div class="ms-Panel ms-Panel--${size} ${$open ? 'is-open' : ''} ${direction==='left' ? 'ms-Panel--left' : ''}"> <!--{closing ? 'ms-Panel-animateOut' : ''} ${opening ? 'ms-Panel-animateIn' : ''}-->
+        <button class="ms-Panel-closeButton ms-PanelAction-close"> <!-- ms-PanelAction-close not used as this one triggers double close event. click.delegate="closePanel()" is also removed to let Panel fire this, see msPanel constructor changes -->
+                <i class="ms-Panel-closeIcon ms-Icon ms-Icon--Cancel"></i>
+            </button>
+        <div class="ms-Panel-contentInner">
+            <p class="ms-Panel-headerText ${headerCss}">${headerText}</p>
+            <div class="ms-Panel-content">
+                <span class="ms-font-m">
+                    <slot></slot>
+                </span>
+            </div>
+        </div>        
+    </div>
+</template>

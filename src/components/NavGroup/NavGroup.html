@@ -1,0 +1,14 @@
+<template containerless>
+    <div class="ms-Nav-group ${isExpanded? 'is-expanded':''}">
+        <button click.delegate="isExpanded = !isExpanded"
+            if.bind="name !== null" class="ms-Nav-chevronButton ms-Nav-chevronButton--group ms-Nav-groupHeaderFontSize">
+            <i class="ms-Nav-chevron ms-Icon ms-Icon--ChevronDown" ></i>
+            ${name}
+        </button>
+        <div class="ms-Nav-groupContent ms-u-slideDownIn20">
+            <ul role="list">
+                <slot></slot>
+            </ul>
+        </div>
+    </div>
+</template>

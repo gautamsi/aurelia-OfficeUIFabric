@@ -1,0 +1,138 @@
+<template>
+    <h1>Fabric CommandButton</h1>
+    <h3>tag: &lt;fabric-command-button&gt;&lt;/fabric-command-button&gt;</h3>
+
+    <h2>Variants</h2>
+
+    <h3>Default CommandButton</h3>
+    <fabric-command-button variant="default" label="Command" disabled.bind="isDisabled" icon="CircleRing" click.call="log('Clicked')">
+    </fabric-command-button>
+
+    <h3>Action CommandButton</h3>
+    <fabric-command-button variant="actionButton" label="Command" disabled.bind="isDisabled" icon="Home" click.call="log('Clicked')">
+    </fabric-command-button>
+    
+    <h3>Dropdown CommandButton</h3>
+    <fabric-command-button variant="default" label="Command" disabled.bind="isDisabled" icon="CircleRing" dropdown.one-time="true">
+        <fabric-contextual-menu-item title="Delete"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Flag"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item variant="divider"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Important"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Move"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item variant="divider"></fabric-contextual-menu-item>
+    </fabric-command-button>
+
+    <h3>Inline CommandButton</h3>
+    <fabric-command-button variant="inline" label="Command" disabled.bind="isDisabled" icon="Accept" click.call="log('Clicked')">
+    </fabric-command-button>
+    
+    <h3>No Label Split CommandButton</h3>
+    <fabric-command-button variant="noLabel" label="Command" split.bind="true" disabled.bind="isDisabled" icon="CircleRing" click.call="log('Clicked')">
+        <fabric-contextual-menu-item title="Reply"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Reply all"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Forward" selected.one-time="true"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Flag"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Delete" disabled></fabric-contextual-menu-item>
+    </fabric-command-button>
+    
+    <h3>Pivot CommandButton</h3>
+    <fabric-command-button variant="pivot" state="is-active" label="Command" disabled.bind="isDisabled" icon="CircleRing" click.call="log('Clicked')">
+    </fabric-command-button>
+
+    <h3>Split CommandButton</h3>
+    <fabric-command-button variant="default" label="Reply" split.bind="true" disabled.bind="isDisabled" icon="CircleRing" click.call="log('Clicked')">
+        <fabric-contextual-menu-item title="Reply"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Reply all"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Forward" selected.one-time="true"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Flag"></fabric-contextual-menu-item>
+        <fabric-contextual-menu-item title="Delete" disabled></fabric-contextual-menu-item>
+    </fabric-command-button>
+    
+    <h3>Text Only CommandButton</h3>
+    <fabric-command-button variant="TextOnly" label="Command" disabled.bind="isDisabled" click.call="log('Clicked')">
+    </fabric-command-button>
+
+    <br>
+    <br>
+    <fabric-checkbox checked.bind="isDisabled">
+        check to disable above buttons
+    </fabric-checkbox>
+
+    <h2>Attributes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>attribute</th>
+                <th>possible values</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>variant</td>
+                <td>string type </td>
+                <td><code>type CommandButtonVariants = "default" | "noLabel" | "inline" | "actionButton" | "pivot" | "TextOnly";</code></td>
+            </tr>
+            <tr>
+                <td>icon</td>
+                <td>One of icon type in Fabric UI icons, only the part after <code>.ms-Icon--</code> e.g. <code>CircleRing</code> (default) for
+                    <code>.ms-Icon--CircleRing</code> </td>
+                <td>adds icon to the left side of command button</td>
+            </tr>
+            <tr>
+                <td>icon-color</td>
+                <td>one of the color variant in Fabric UI Core typography, only the part after <code>.ms-fontColor-</code> e.g. <code>themePrimary</code> (default) for
+                    <code>.ms-fontColor-themePrimary</code> </td>
+                <td>changes icon color on the command button</td>
+            </tr>
+            <tr>
+                <td>dropdown</td>
+                <td><code>true</code> or <code>false</code></td>
+                <td>enable or disable context menu on commandbar</td>
+            </tr>
+            <tr>
+                <td>dropdown-icon</td>
+                <td>One of icon type in Fabric UI icons, only the part after <code>.ms-Icon--</code> e.g. <code>ChevronDown</code> (default) for
+                    <code>.ms-Icon--ChevronDown</code> </td>
+                <td>adds an icon on the right side of command button to create context menu. see examples</td>
+            </tr>
+            <tr>
+                <td>split</td>
+                <td><code>true</code> or <code>false</code></td>
+                <td>enable or disable the spli mode button for cntext menu</td>
+            </tr>
+            <tr>
+                <td>split-icon</td>
+                <td>One of icon type in Fabric UI icons, only the part after <code>.ms-Icon--</code> e.g. <code>ChevronDown</code> (default) for
+                    <code>.ms-Icon--ChevronDown</code> </td>
+                <td>adds an icon on the command button to create context menu using dedicated small button on right side with icon only content, see examples</td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>string vaue</td>
+                <td>displays as text on the button</td>
+            </tr>
+            <tr>
+                <td>state</td>
+                <td>string value</td>
+                <td>specific class name for css in command button, usually <code>is-active</code> with pivot variant</td>
+            </tr>
+            <tr>
+                <td>custom-class</td>
+                <td>custom css class names</td>
+                <td>additional classes can be added to button for further customization</td>
+            </tr>
+            <tr>
+                <td>disabled</td>
+                <td><code>true</code> or <code>false</code></td>
+                <td>enable or disable the button</td>
+            </tr>
+            <tr>
+                <td>click</td>
+                <td>Function call when the command button is clicked. ignored when using <code>dropdown.bind="true"</code> which creates context menu on button click </td>
+                <td> use <code>click.call="functionName()"</code> to trigger</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</template>
