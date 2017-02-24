@@ -1,62 +1,43 @@
-// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
+import { bindable, customElement, inject } from 'aurelia-framework';
+import { toBool } from '../../utilities/convert';
+import { CommandButton as FabricCommandButton } from './msCommandButton';
 
-import { ContextualHost } from "../ContextualHost/msContextualHost";
-
-/**
- * CommandButton
- *
- * Buttons used primarily in the command bar
- *
- */
-
-/**
- *
- * @constructor
- */
-const CONTEXT_CLASS = ".ms-ContextualMenu";
-const CB_SPLIT_CLASS = ".ms-CommandButton-splitIcon";
-const CB_BUTTON_CLASS = ".ms-CommandButton-button";
-const MODAL_POSITION = "bottom";
-
+@inject(Element)
+@customElement('fabric-command-button')
 export class CommandButton {
+    @bindable public variant: CommandButtonVariants = "default";
+    @bindable public disabled: boolean;
+    @bindable public label: string;
+    @bindable public icon: string = "CircleRing";
+    @bindable public iconColor: string = "themePrimary";
+    @bindable public dropdown: boolean = false;
+    @bindable public dropdownIcon: string = "ChevronDown";
+    @bindable public splitIcon: string = "ChevronDown";
+    @bindable public split: boolean = false;
+    @bindable public customClass: string = "";
+    @bindable public state: string = "";
+    @bindable public click: Function;
 
-  private _command;
-  private _commandButton;
-  private _splitButton;
-  private _modalHostView;
-  private _container: HTMLElement;
-  private _contextualMenu: HTMLElement;
+    private isDisabled: boolean = false;
+    private commandDiv: HTMLElement;
+    private _cmdButton: FabricCommandButton;
+    public constructor(private element: Element) {
 
-  constructor(container: HTMLElement, contextMenu?: HTMLElement) {
-    this._container = container;
-    this._command = this._container;
-    this._commandButton = this._command.querySelector(CB_BUTTON_CLASS);
-    this._splitButton = this._command.querySelector(CB_SPLIT_CLASS);
-
-    if (contextMenu) {
-      this._contextualMenu = contextMenu;
-    } else {
-      this._contextualMenu = <HTMLElement>this._container.querySelector(CONTEXT_CLASS);
     }
 
-    this._checkForMenu();
-  }
-
-  private _createModalHostView() {
-    this._modalHostView = new ContextualHost(this._contextualMenu, MODAL_POSITION, this._command, false);
-  }
-
-  private _setClick() {
-    if (this._splitButton) {
-      this._splitButton.addEventListener("click", this._createModalHostView.bind(this), false);
-    } else {
-      this._commandButton.addEventListener("click", this._createModalHostView.bind(this), false);
+    attached() {
+        this._cmdButton = new FabricCommandButton(this.commandDiv, null, !(toBool(this.dropdown) || toBool(this.split)));
     }
-  }
-
-  private _checkForMenu() {
-    if (this._contextualMenu) {
-      this._setClick();
+    public disabledChanged(newValue) {
+        this.isDisabled = toBool(newValue);
     }
-  }
+
+    private _buttonClickedHandler() {
+        if (this.click && !this.dropdown) {
+            this.click();
+        }
+    }
 }
+
+
+export type CommandButtonVariants = "default" | "noLabel" | "inline" | "actionButton" | "pivot" | "TextOnly";

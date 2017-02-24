@@ -18,6 +18,7 @@ export class App {
       // { route: 'Breadcrumb',      name: 'breadcrumb',   moduleId: 'components/breadcrumb/breadcrumb', nav: true,  title: 'Breadcrumb',  settings: 'COMPONENTS' },
       { route: 'Button',          name: 'button',       moduleId: 'components/button/button',         nav: true,  title: 'Button',      settings: 'COMPONENTS' },
       { route: 'CheckBox',        name: 'checkbox',     moduleId: 'components/checkbox/checkbox',     nav: true,  title: 'CheckBox',    settings: 'COMPONENTS' },
+      { route: 'CommandButton',   name: 'cmdbutton',    moduleId: 'components/cmdbutton/cmdbutton',   nav: true,  title: 'CommandButton', settings: 'COMPONENTS' },
       { route: 'ContextualMenu',  name: 'ctxmenu',      moduleId: 'components/ctxmenu/ctxmenu',       nav: true,  title: 'ContextualMenu', settings: 'COMPONENTS' },
       { route: 'FacePile',        name: 'facepile',     moduleId: 'components/facepile/facepile',     nav: true,  title: 'FacePile',    settings: 'COMPONENTS' },
       { route: 'Icon',            name: 'icon',         moduleId: 'components/icons/icons',           nav: true,  title: 'Icon',        settings: 'COMPONENTS' },

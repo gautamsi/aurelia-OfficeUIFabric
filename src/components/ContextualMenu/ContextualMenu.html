@@ -8,7 +8,7 @@
             left: 178px;
         }
     </style>-->
-    <ul ref="ctxMenuRoot" class="is-hidden ms-ContextualMenu ${isOpen ? 'is-open' : ''} ${multiSelect ? 'ms-ContextualMenu--multiselect' : ''}">
+    <ul ref="ctxMenuRoot" class="ms-ContextualMenu ${isOpen ? 'is-open' : 'is-hidden'} ${multiSelect ? 'ms-ContextualMenu--multiselect' : ''}">
         <!-- slot for menu items -->
         <slot></slot>
     </ul>

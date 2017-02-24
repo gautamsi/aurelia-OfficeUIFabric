@@ -3,53 +3,53 @@
     <h3>tag: &lt;fabric-button&gt;&lt;/fabric-button&gt;</h3>
 
     <h2 id="variants">Variants</h2>
-    <h3 id="default">Default <code>type="default" || "basic" || ""</code></h3>
+    <h3 id="default">Default <code>variant="default" || "basic" || ""</code></h3>
 
-    <fabric-button type="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" ref.bind="basic" click.call="log($event, 'Clicked' + basic.type)">
+    <fabric-button variant="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" ref.bind="basic" click.call="log($event, 'Clicked' + basic.variant)">
     </fabric-button>
     <br>
     <p>
         Default with <code>dropdown-icon="ChevronDown" btn-class="custom class name"</code>
     </p>
     &nbsp;
-    <fabric-button type="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" dropdown-icon="ChevronDown" btn-class="impred">
+    <fabric-button variant="basic" label="Create Account" disabled.bind="isDisabled" icon="minus" dropdown-icon="ChevronDown" btn-class="impred">
     </fabric-button>
 
-    <h3 id="primary">Primary <code>type="primary"</code></h3>
+    <h3 id="primary">Primary <code>variant="primary"</code></h3>
 
     <p>Where multiple buttons are presented together, this is the default action when submitting the form.</p>
 
-    <fabric-button type="primary" label="Create Account" disabled.bind="isDisabled" ref.bind="primary" click.call="log($event, 'Clicked' + primary.type)">
+    <fabric-button variant="primary" label="Create Account" disabled.bind="isDisabled" ref.bind="primary" click.call="log($event, 'Clicked' + primary.variant)">
     </fabric-button>
     <p>
         Primary with <code>dropdown-icon="Package"</code>
     </p>
-    <fabric-button type="primary" disabled.bind="isDisabled" icon="minus" dropdown-icon="Package">
+    <fabric-button variant="primary" disabled.bind="isDisabled" icon="minus" dropdown-icon="Package">
         Creste Account
     </fabric-button>
 
-    <h3 id="compound">Compound <code>type="compound"</code></h3>
+    <h3 id="compound">Compound <code>variant="compound"</code></h3>
     <p>Provides a second line of text to explain the action the button takes.</p>
 
-    <fabric-button type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
-        disabled.bind="isDisabled" ref="compound" click.call="log('Clicked' + compound.type)">
+    <fabric-button variant="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+        disabled.bind="isDisabled" ref="compound" click.call="log('Clicked' + compound.variant)">
     </fabric-button>
     <p>
         Compound with <code>dropdown-icon="History"</code>
     </p>
-    <fabric-button type="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
+    <fabric-button variant="compound" label="Create Account" description="Description of this action this button takes" icon="plus"
         dropdown-icon="History" disabled.bind="isDisabled" ref="compound">
     </fabric-button>
 
-    <h3 id="hero">Hero <code>type="hero"</code>> </h3>
+    <h3 id="hero">Hero <code>variant="hero"</code>> </h3>
     <p>Similar to the Command variant, but with a larger size to draw attention to important actions.</p>
 
-    <fabric-button type="hero" icon="Add" label="Create Account" disabled.bind="isDisabled" ref="hero">
+    <fabric-button variant="hero" icon="Add" label="Create Account" disabled.bind="isDisabled" ref="hero">
     </fabric-button>
     <p>
         Hero type with <code>icon="Attach"" dropdown-icon="PhotoCollection"</code>
     </p>
-    <fabric-button type="hero" icon="Attach" label="Create Account" disabled.bind="isDisabled" ref="hero" dropdown-icon="PhotoCollection">
+    <fabric-button variant="hero" icon="Attach" label="Create Account" disabled.bind="isDisabled" ref="hero" dropdown-icon="PhotoCollection">
     </fabric-button>
 
     <br>
@@ -68,7 +68,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>type</td>
+                <td>variant</td>
                 <td><code>''</code>(empty) or <code>default</code> or <code>basic</code><br>
                     <code>primary</code><br>
                     <code>compound</code><br>

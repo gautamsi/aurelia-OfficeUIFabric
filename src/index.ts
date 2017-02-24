@@ -23,6 +23,7 @@ export function configure(config: FrameworkConfiguration) {
     "./components/ContextualMenu/ContextualMenu",
     "./components/ContextualMenu/ContextualMenuItem",
     "./components/Button/Button",
+    "./components/CommandButton/CommandButton",
     "./components/CheckBox/CheckBox",
     "./components/Icon/Icon",
     "./components/Nav/Nav",
